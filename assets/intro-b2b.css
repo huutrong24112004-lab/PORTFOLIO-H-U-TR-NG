@@ -1,0 +1,149 @@
+/* ==========================================================
+   Intro B2B · mạng lưới dữ liệu 3D
+   Thay thế intro "cú nhảy" cũ. Không phụ thuộc style.css.
+   ========================================================== */
+
+/* Ẩn intro cũ nhưng giữ trong DOM để script cũ không báo lỗi */
+#intro{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+
+.b2b-intro{
+  display:none;
+  position:fixed;inset:0;
+  z-index:2147483000;
+  background:
+    radial-gradient(1200px 700px at 68% 48%,#0a2150 0%,rgba(10,33,80,0) 60%),
+    linear-gradient(180deg,#040a17 0%,#071328 55%,#040a17 100%);
+  color:#eaf2ff;
+  font-family:"Inter","Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+html[data-b2b="on"] .b2b-intro{display:block;animation:b2bFail .6s 10s forwards}
+@keyframes b2bFail{to{opacity:0;visibility:hidden;pointer-events:none}}
+
+.b2b-intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.b2b-vignette{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 60% 48%,transparent 34%,rgba(4,10,23,.55) 72%,rgba(4,10,23,.92) 100%);
+}
+
+/* ---------- HUD ---------- */
+.b2b-hud{
+  position:absolute;inset:0;
+  display:grid;grid-template-rows:auto 1fr auto;
+  padding:clamp(20px,3.2vw,44px);
+  pointer-events:none;
+  transition:opacity .6s ease .1s,transform .8s cubic-bezier(.4,0,.2,1),filter .6s ease;
+}
+.b2b-intro.leaving{opacity:0;transition:opacity .6s cubic-bezier(.5,0,.8,.4) .12s}
+.b2b-intro.leaving .b2b-hud{transform:scale(1.05);filter:blur(6px);opacity:0}
+.b2b-intro.leaving.fast{transition-duration:.32s;transition-delay:.04s}
+.b2b-intro.leaving.fast .b2b-hud{transition-duration:.3s;transition-delay:0s}
+
+.b2b-top{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(206,224,255,.66);
+  opacity:0;
+}
+.b2b-brand{font-weight:700;letter-spacing:.16em;color:#fff}
+.b2b-brand i{font-style:normal;color:#3aa0ff}
+
+.b2b-copy{align-self:center;max-width:min(640px,46vw)}
+.b2b-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+  color:#8cc6ff;margin:0 0 clamp(14px,2vw,26px);
+  opacity:0;transform:translateY(10px);
+}
+.b2b-eyebrow .dot{
+  width:7px;height:7px;border-radius:50%;background:#3fd0ff;
+  box-shadow:0 0 0 0 rgba(63,208,255,.6);animation:b2bPing 1.8s ease-out infinite;
+}
+@keyframes b2bPing{70%,100%{box-shadow:0 0 0 12px rgba(63,208,255,0)}}
+
+.b2b-title{
+  margin:0;font-weight:650;line-height:.98;letter-spacing:-.035em;
+  font-size:clamp(48px,7.2vw,108px);color:#fff;
+}
+.b2b-title .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.b2b-title .ln>span{display:block;transform:translateY(108%)}
+.b2b-title .grad{
+  background:linear-gradient(100deg,#79c8ff 0%,#2f8bff 55%,#93e6ff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+}
+.b2b-tag{
+  margin:clamp(18px,2.2vw,30px) 0 0;max-width:30ch;
+  font-size:clamp(16px,1.45vw,21px);line-height:1.5;color:rgba(226,237,255,.82);
+  opacity:0;transform:translateY(12px);
+}
+
+.b2b-bottom{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;
+  opacity:0;
+}
+.b2b-steps{list-style:none;margin:0;padding:0;display:flex;gap:clamp(16px,2.4vw,34px)}
+.b2b-steps li{
+  position:relative;min-width:118px;padding-top:11px;
+  border-top:1px solid rgba(160,200,255,.2);
+  font-size:12px;letter-spacing:.03em;line-height:1.35;color:rgba(200,220,250,.4);
+  display:flex;flex-direction:column;gap:4px;
+  transition:color .5s ease;
+}
+.b2b-steps li::after{
+  content:"";position:absolute;left:0;top:-1px;height:1px;width:0;
+  background:linear-gradient(90deg,#2f8bff,#7fdcff);transition:width .7s cubic-bezier(.2,.8,.2,1);
+}
+.b2b-steps li.on{color:#fff}
+.b2b-steps li.on::after{width:100%}
+.b2b-steps b{
+  font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:#4aa8ff;letter-spacing:.08em;
+}
+
+.b2b-right{display:flex;align-items:center;gap:18px;pointer-events:auto}
+.b2b-progress{display:flex;align-items:center;gap:12px}
+.b2b-pct{
+  font:500 12px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:rgba(206,224,255,.7);min-width:3.2ch;text-align:right;font-variant-numeric:tabular-nums;
+}
+.b2b-bar{width:clamp(70px,10vw,130px);height:2px;background:rgba(255,255,255,.14);overflow:hidden}
+.b2b-bar i{display:block;height:100%;background:linear-gradient(90deg,#2f8bff,#7fdcff);transform-origin:left;transform:scaleX(0)}
+.b2b-skip{
+  pointer-events:auto;cursor:pointer;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:9px 16px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.03);
+  color:#dbe8ff;font:500 13px/1 inherit;font-family:inherit;
+  transition:background .25s,border-color .25s;
+}
+.b2b-skip:hover,.b2b-skip:focus-visible{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5);outline:none}
+.b2b-skip kbd{
+  font:500 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  padding:3px 6px;border-radius:5px;border:1px solid rgba(255,255,255,.22);color:rgba(219,232,255,.7);
+}
+
+/* ---------- Timeline (chạy khi có .play) ---------- */
+.b2b-intro.play .b2b-top{animation:b2bFade .8s .15s ease forwards}
+.b2b-intro.play .b2b-bottom{animation:b2bFade .8s .3s ease forwards}
+.b2b-intro.play .b2b-eyebrow{animation:b2bUp .8s .45s cubic-bezier(.2,.8,.2,1) forwards}
+.b2b-intro.play .b2b-title .ln>span{animation:b2bRise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.b2b-intro.play .b2b-title .ln:nth-child(1)>span{animation-delay:.7s}
+.b2b-intro.play .b2b-title .ln:nth-child(2)>span{animation-delay:.85s}
+.b2b-intro.play .b2b-tag{animation:b2bUp .9s 1.45s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes b2bFade{to{opacity:1}}
+@keyframes b2bUp{to{opacity:1;transform:none}}
+@keyframes b2bRise{to{transform:none}}
+
+/* ---------- Màn hình dọc / điện thoại ---------- */
+@media (max-width:819px),(max-aspect-ratio:20/21){
+  .b2b-copy{align-self:end;max-width:none;margin-bottom:clamp(8px,2vh,24px)}
+  .b2b-title{font-size:clamp(44px,13.5vw,76px)}
+  .b2b-tag{max-width:34ch}
+  .b2b-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 18px;width:100%}
+  .b2b-steps li{min-width:0}
+  .b2b-bottom{flex-direction:column;align-items:stretch}
+  .b2b-right{justify-content:space-between}
+}
+
+@media (prefers-reduced-motion:reduce){.b2b-intro{display:none!important}}
