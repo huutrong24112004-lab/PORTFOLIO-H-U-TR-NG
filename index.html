@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Nguyễn Hữu Trọng | Marketing Portfolio</title>
+<meta content="Portfolio cá nhân của Nguyễn Hữu Trọng – Content Marketing, Social Media, SEO và truyền thông thương hiệu." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --paper:#ffffff; --ink:#1d2948; --muted:#465875; --blue:#1d2948; --blue-dark:#14203b;
+  --sky:#edf2fa; --sky-2:#dfe7f4; --line:#cbd5e5; --white:#fff;
+  --display:"Bricolage Grotesque","Be Vietnam Pro",system-ui,sans-serif;
+  --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1412px,100% - 56px);margin-inline:auto}
+section{padding:88px 0}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.035em}
+h2{font-size:clamp(32px,4vw,48px);font-weight:800;max-width:22ch}
+.sec-intro{color:var(--muted);max-width:65ch;margin-top:14px}
+.head{margin-bottom:42px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:90px;gap:24px}
+.logo{font-family:var(--display);font-weight:800;text-decoration:none;font-size:25px;letter-spacing:-.04em;white-space:nowrap}
+.logo::after{content:".";color:var(--blue)}
+nav{display:flex;align-items:center;gap:28px}
+nav a{text-decoration:none;font-size:15px;font-weight:650;color:var(--ink);white-space:nowrap}
+nav a:hover{color:var(--blue)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 25px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;border:1px solid #8ab9e8;cursor:pointer;font-family:var(--body);transition:transform .18s,background .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink)}
+.lang{border:1px solid #8ab9e8;background:#fff;border-radius:999px;padding:8px 14px;font:700 13px var(--body);cursor:pointer;color:var(--ink);white-space:nowrap}
+.lang:hover{background:var(--blue);color:#fff}
+.lang{display:inline-flex;align-items:center;gap:2px;padding:8px 12px}
+.lang-active{display:inline-flex;align-items:center;justify-content:center;min-width:29px;min-height:29px;padding:3px 7px;border-radius:999px;background:var(--blue);color:#fff}
+.lang-separator{color:#9ab7d2}
+.lang.is-en .lang-active{background:transparent;color:var(--ink)}
+.lang.is-en .lang-separator{color:#9ab7d2}
+.lang.is-en .lang-active + .lang-separator + span{display:inline-flex;align-items:center;justify-content:center;min-width:29px;min-height:29px;padding:3px 7px;border-radius:999px;background:var(--blue);color:#fff}
+.hero{position:relative;overflow:hidden;padding:64px 0 78px;background:linear-gradient(115deg,#eaf8ff 0%,#d8f1ff 55%,#bfe6ff 100%)}
+.hero::before{content:"";position:absolute;left:-5%;right:-5%;bottom:-105px;height:230px;border:2px solid rgba(255,255,255,.68);border-radius:50% 50% 0 0;box-shadow:0 -16px 0 rgba(255,255,255,.22),0 -32px 0 rgba(255,255,255,.18);transform:rotate(-2deg)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center}
+.role{display:inline-block;color:#155c9d;font-weight:800;font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px}
+.hero h1{font-size:clamp(48px,6.2vw,88px);font-weight:800;letter-spacing:-.06em;line-height:1.02}
+.hero h1 span{display:block}
+.hero h1 .b{color:var(--blue)}
+.tag{font-size:clamp(19px,2vw,24px);margin:24px 0 14px;max-width:34ch;font-family:var(--display);font-weight:650;line-height:1.35}
+.hero p.desc{color:#315b7d;max-width:58ch;font-size:18px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.avatar{position:relative;justify-self:end;width:min(520px,100%);aspect-ratio:4/4.7}
+.avatar::before{content:"";position:absolute;inset:18px -18px -18px 18px;border-radius:34px;background:#a8d9ff}
+.avatar img{position:relative;width:100%;height:100%;border-radius:32px;object-fit:cover;background:#d3eafa;border:0;box-shadow:0 14px 40px rgba(11,83,145,.10)}
+.avatar::after{content:"Ảnh đại diện sẽ được cập nhật";position:absolute;bottom:18px;left:-24px;background:#fff;border-left:5px solid var(--blue);border-radius:5px;padding:14px 20px;font-weight:700;color:var(--ink);box-shadow:0 8px 24px #0b53851c}
+.about{background:#fff}
+.about .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px}
+.about p{margin-bottom:16px;color:#31516e}
+.stats{display:grid;gap:14px;align-content:start}
+.stat{background:#eef7ff;border-left:4px solid var(--blue);padding:20px 22px}
+.stat b{font-family:var(--display);font-size:28px;color:var(--blue);display:block;line-height:1.2}
+.stat strong{font-size:15px}
+.stat small{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+#experience{background:#fff;color:var(--ink)}
+#experience .sec-intro{color:var(--muted)}
+.experience-list{display:grid;gap:24px}
+.experience-item{display:grid;grid-template-columns:290px minmax(0,1fr);gap:40px;padding:30px 0 34px;border-bottom:1px solid var(--line)}
+.experience-item.featured{background:var(--blue);color:#fff;border:0;border-radius:16px;padding:38px 40px;grid-template-columns:290px minmax(0,1fr);box-shadow:0 12px 30px rgba(8,101,200,.12)}
+.experience-meta{color:#52728e;font-weight:600;padding-top:4px}
+.featured .experience-meta{color:#dceeff}
+.experience-date{font-size:16px;margin-bottom:16px}
+.experience-status{display:inline-block;border:1px solid #9ac9f4;border-radius:6px;padding:7px 12px;font-size:13px;color:#263b62}
+.featured .experience-status{color:#fff;border-color:#75b6f1}
+.experience-content h3{font-size:clamp(25px,2.5vw,36px);margin-bottom:8px}
+.experience-role{font-size:19px;color:var(--blue);margin-bottom:18px}
+.featured .experience-role{color:#d8ebff}
+.experience-content ul{padding-left:22px;display:grid;gap:9px}
+.experience-content li{padding-left:2px}
+.experience-proof{margin-top:24px;border:1px solid #b8d9f8;border-radius:10px;overflow:hidden;background:#fff;color:var(--ink)}
+
+/* Portfolio media galleries */
+.experience-proof .empire-experience-gallery img{display:block;width:100%;height:155px;object-fit:contain;background:#f6f9fd;border-right:1px solid #d5e5f2}
+.experience-proof .empire-experience-gallery img:last-child{border-right:0}
+@media(max-width:760px){.experience-proof .empire-experience-gallery img{height:auto;min-height:120px}}
+.experience-proof .proof-gallery{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;
+}
+.experience-proof .proof-gallery .media-slot{
+  min-height:150px;border-right:1px solid #d5e5f2;
+}
+.experience-proof .proof-gallery .media-slot:last-child{border-right:0}
+.media-slot{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;min-height:190px;padding:18px;text-align:center;
+  color:#52728e;background:linear-gradient(135deg,#f5f7fc,#dcefff);
+  border:1px dashed #a9cfee;border-radius:8px;
+}
+.media-slot strong{color:#263b62;font-size:14px}
+.media-slot small{font-size:12px;line-height:1.45}
+.design-projects{display:grid;gap:34px}
+.design-project{padding-bottom:30px;border-bottom:1px solid var(--line)}
+.design-project-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:16px}
+.design-project-head h3{font-size:clamp(21px,2.4vw,28px)}
+.design-project-head p{color:var(--muted);font-size:13px}
+.design-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.design-gallery .media-slot{min-height:220px}
+.video-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.video-card{overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#fff}
+.video-cover{min-height:270px;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(135deg,#e8f6ff,#c9e8ff)}
+.video-cover .media-slot{width:100%;min-height:230px;background:rgba(255,255,255,.5)}
+.video-info{padding:22px}
+.video-type{display:inline-block;color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.video-info h3{font-size:23px;margin-bottom:8px}
+.video-info p{color:var(--muted);font-size:15px}
+
+
+
+/* Empire Team content case */
+.empire-case{background:#fff;border:1px solid #d9e8f7;border-radius:20px;overflow:hidden;box-shadow:0 12px 34px rgba(17,62,105,.055);margin-bottom:22px}
+.empire-case-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.92fr);gap:28px;padding:clamp(22px,3vw,38px);align-items:center}
+.empire-case .b2b-topline{margin-bottom:14px}
+.empire-case h3{font-size:clamp(27px,3vw,38px);line-height:1.06;letter-spacing:-.04em;color:#142e4c;margin:0 0 12px}
+.empire-case .b2b-summary{margin-bottom:16px}
+.empire-case-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 0}
+.empire-case-points div{padding:12px 13px;border-radius:12px;background:#f2f6fc;border:1px solid #e0e9f5}
+.empire-case-points strong{display:block;color:#1d2948;font-size:20px;line-height:1.15}
+.empire-case-points span{display:block;color:#607890;font-size:11px;line-height:1.4;margin-top:5px}
+.empire-timeline{padding:0 clamp(22px,3vw,38px) 26px}
+.empire-timeline-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:12px}
+.empire-timeline-head h4{font-size:13px;letter-spacing:.1em;color:#142e4c;margin:0}
+.empire-timeline-head p{font-size:12px;color:#6b8299;margin:0}
+.empire-timeline-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.empire-timeline-steps div{border-top:2px solid #1d2948;padding:10px 10px 0;background:#f7f9fc;border-radius:0 0 10px 10px}
+.empire-timeline-steps b{display:block;color:#1d2948;font-size:11px;margin-bottom:5px}
+.empire-timeline-steps span{display:block;color:#526a82;font-size:11px;line-height:1.45}
+.empire-proof-grid{display:grid;grid-template-columns:1.1fr 1.6fr 1fr 1fr;gap:10px;padding:0 clamp(22px,3vw,38px) 28px}
+.empire-proof{border:1px solid #dbe6f2;border-radius:12px;overflow:hidden;background:#f5f8fc;min-width:0}
+.empire-proof img{display:block;width:100%;height:130px;object-fit:contain;background:#f5f8fc}
+.empire-proof span{display:block;padding:8px 9px;font-size:10px;font-weight:750;line-height:1.35;color:#425a73}
+@media(max-width:760px){.empire-case-top{grid-template-columns:1fr}.empire-timeline-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.empire-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.empire-proof img{height:140px}.empire-timeline-head{display:block}.empire-timeline-head p{margin-top:5px}}
+
+/* B2B case studies */
+.b2b-showcase{background:#f4f9ff;overflow:hidden}
+.b2b-heading{display:grid;grid-template-columns:1fr minmax(260px,.7fr);align-items:end;gap:36px;margin-bottom:34px}
+.b2b-eyebrow{display:block;color:#1d2948;font-size:11px;font-weight:800;letter-spacing:.16em;margin-bottom:13px}
+.b2b-heading .head{margin-bottom:0}
+.b2b-heading h2{max-width:13ch}
+.b2b-heading .sec-intro{max-width:46ch;margin:0 0 5px}
+.b2b-project-list{display:grid;gap:22px}
+.b2b-project{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.88fr);gap:0;background:#fff;border:1px solid #d9e8f7;border-radius:20px;overflow:hidden;box-shadow:0 12px 34px rgba(17,62,105,.055)}
+.b2b-project.reverse .b2b-project-copy{order:2}
+.b2b-project.reverse .b2b-project-visual{order:1;border-left:0;border-right:1px solid #e0edf8}
+.b2b-project-copy{padding:clamp(23px,3.2vw,42px);display:flex;flex-direction:column;align-items:flex-start}
+.b2b-topline{display:flex;align-items:center;flex-wrap:wrap;gap:9px 14px;color:#1d2948;font-size:10px;letter-spacing:.1em;font-weight:800;margin-bottom:18px}
+.b2b-topline span:first-child{background:#edf2fa;border-radius:5px;padding:6px 8px}
+.b2b-topline span:last-child{color:#69819a}
+.b2b-project h3{font-size:clamp(28px,3vw,40px);line-height:1.02;letter-spacing:-.045em;margin:0 0 12px;color:#142e4c}
+.b2b-project h3 span{display:block;color:#1d2948;font-size:.57em;letter-spacing:-.02em;margin-top:8px}
+.b2b-summary{color:#4c6680;font-size:15px;line-height:1.65;margin:0 0 20px;max-width:48ch}
+.b2b-minihead{font-size:11px;letter-spacing:.12em;font-weight:900;color:#142e4c;margin-bottom:8px}
+.b2b-list{padding-left:18px;margin:0 0 22px;color:#344d66;font-size:14px;line-height:1.6}
+.b2b-list li{padding-left:2px;margin:4px 0}
+.b2b-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%;padding:16px 0;border-top:1px solid #e3edf6;border-bottom:1px solid #e3edf6;margin-top:auto}
+.b2b-metrics div{display:flex;flex-direction:column;gap:5px}
+.b2b-metrics strong{color:#1d2948;font-size:clamp(19px,2vw,26px);letter-spacing:-.04em;line-height:1}
+.b2b-metrics span{font-size:11px;line-height:1.4;color:#607890}
+.b2b-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}
+.b2b-tags span{font-size:10px;font-weight:700;color:#285579;border:1px solid #d8e9f8;background:#f7fbff;border-radius:999px;padding:6px 9px}
+.b2b-project-visual{display:flex;flex-direction:column;justify-content:center;background:#edf5fc;border-left:1px solid #e0edf8;min-width:0}
+.b2b-project-visual img{display:block;width:100%;height:100%;min-height:360px;max-height:500px;object-fit:contain;object-position:center;background:#f1f5f9}
+.b2b-image-caption{display:flex;justify-content:space-between;gap:10px;padding:13px 17px;background:#fff;color:#647d94;font-size:10px;font-weight:700}
+.b2b-footnote{font-size:12px;color:#748ba1;margin:18px 2px 0}
+@media(max-width:760px){.b2b-heading{grid-template-columns:1fr;gap:12px}.b2b-project,.b2b-project.reverse{grid-template-columns:1fr}.b2b-project.reverse .b2b-project-copy,.b2b-project.reverse .b2b-project-visual{order:initial}.b2b-project-visual,.b2b-project.reverse .b2b-project-visual{border:0;border-top:1px solid #e0edf8}.b2b-project-visual img{min-height:0;max-height:none;aspect-ratio:4/3;object-fit:contain}.b2b-project-copy{padding:24px}.b2b-metrics{gap:7px}.b2b-metrics strong{font-size:21px}}
+
+/* Event portfolio — editorial case-study layout */
+#events{background:linear-gradient(180deg,#f4faff 0%,#ffffff 72%);overflow:hidden}
+#events .head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:34px}
+#events .head h2{max-width:15ch}
+#events .head .sec-intro{max-width:38ch;margin:0 0 4px}
+.event-list{display:grid;gap:24px}
+.event-card{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(320px,.94fr);align-items:stretch;overflow:hidden;background:#fff;border:1px solid #d7e7f5;border-radius:20px;box-shadow:0 12px 36px rgba(20,65,104,.06)}
+.event-card:nth-child(even){grid-template-columns:minmax(320px,.94fr) minmax(0,1.06fr)}
+.event-card:nth-child(even) .event-visual{order:2}
+.event-visual{position:relative;min-height:300px;background:#e6f3ff;overflow:hidden}
+.event-visual img{display:block;width:100%;height:100%;min-height:300px;object-fit:cover;object-position:center;transition:transform .5s ease}
+.event-card:hover .event-visual img{transform:scale(1.025)}
+.event-visual:after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(8,36,67,.18));pointer-events:none}
+.event-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(24px,3.3vw,44px)}
+.event-kicker{display:flex;align-items:center;gap:9px;color:#1d2948;font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;margin-bottom:15px}
+.event-kicker:before{content:"";width:24px;height:2px;background:#1d2948}
+.event-copy h3{font-size:clamp(25px,3vw,38px);letter-spacing:-.045em;line-height:1.05;margin-bottom:12px;max-width:18ch}
+.event-role{font-size:16px;color:#315b7d;line-height:1.55;margin-bottom:18px;max-width:44ch}
+.event-stat{display:inline-flex;align-items:baseline;gap:9px;background:#eaf5ff;border-left:4px solid #1d2948;padding:10px 14px;border-radius:0 9px 9px 0;margin-bottom:19px}
+.event-stat strong{font-family:var(--display);font-size:25px;line-height:1;color:#1d2948;white-space:nowrap}
+.event-stat span{font-size:13px;color:#315b7d;font-weight:600}
+.event-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:2px}
+.event-tags span{border:1px solid #d6e7f5;border-radius:999px;padding:6px 10px;font-size:12px;color:#315b7d;background:#fff;font-weight:600}
+.event-index{position:absolute;z-index:1;top:16px;left:16px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#fff;color:#1d2948;font-weight:800;box-shadow:0 4px 14px #0a37631c}
+@media(max-width:760px){
+ #events .head{display:block}
+ #events .head .sec-intro{margin-top:12px}
+ .event-card,.event-card:nth-child(even){grid-template-columns:1fr}
+ .event-card:nth-child(even) .event-visual{order:0}
+ .event-visual,.event-visual img{min-height:0;aspect-ratio:16/10}
+ .event-copy{padding:24px}
+ .event-copy h3{font-size:29px}
+}
+
+@media(max-width:760px){
+  .experience-proof .proof-gallery{grid-template-columns:1fr}
+  .experience-proof .proof-gallery .media-slot{border-right:0;border-bottom:1px solid #d5e5f2}
+  .experience-proof .proof-gallery .media-slot:last-child{border-bottom:0}
+  .design-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .design-gallery .media-slot{min-height:160px}
+  .video-projects{grid-template-columns:1fr}
+  .design-project-head{align-items:start;flex-direction:column;gap:4px}
+}
+
+.experience-proof .proof-placeholder{min-height:112px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;background:linear-gradient(120deg,#f5f7fc,#dcefff);color:#52728e;font-size:14px}
+.experience-proof .proof-caption{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;font-weight:700}
+.experience-proof .proof-caption span:last-child{font-size:13px;color:#52728e;font-weight:500}
+.featured .experience-proof{border-color:#c6e2ff}
+.note{margin-top:28px;font-size:14px;color:var(--muted)}
+.skills-list{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
+.skill{padding:26px 24px 26px 0;border-bottom:1px solid var(--line)}
+.skill h3{font-size:21px;margin-bottom:8px}
+.skill p{color:var(--muted);font-size:15px}
+.skill:nth-child(3n+2),.skill:nth-child(3n){padding-left:24px;border-left:1px solid var(--line)}
+.projects{background:#f5f7fc;color:var(--ink)}
+.projects .sec-intro{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 20px rgba(13,68,112,.04)}
+.card h3{font-size:21px}
+.card p{color:var(--muted);font-size:15px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12.5px;background:#edf2fa;padding:4px 10px;border-radius:999px;color:#263b62}
+.pkgs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.pkg{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;display:flex;flex-direction:column}
+.pkg.hot{background:#e7f4ff;border-color:#8fc5f8}
+.pkg h3{font-size:22px;margin-bottom:14px}
+.pkg ul{list-style:none;flex:1;margin-bottom:22px}
+.pkg li{padding:7px 0 7px 22px;position:relative;font-size:15px;border-bottom:1px solid rgba(20,47,80,.1)}
+.pkg li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700}
+.price{font-weight:600;margin-bottom:14px}
+.light{background:#fff}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ph{aspect-ratio:4/3;border:1px dashed #8dbce8;border-radius:14px;display:grid;place-items:center;text-align:center;padding:16px;color:#52728e;font-size:14px;background:#eff8ff}
+.ph.v{aspect-ratio:4/5}
+.cards.two,.pkgs.two{grid-template-columns:repeat(2,1fr)}
+.contact{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 10% 0%,rgba(91,125,184,.22),transparent 48%);pointer-events:none}
+.contact .wrap{position:relative;z-index:1}
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.contact .head{margin-bottom:28px}
+.contact .eyebrow{display:inline-block;color:#b9c9e8;text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;margin-bottom:12px}
+.achievement-title{font-family:var(--display);font-size:clamp(25px,3vw,38px);line-height:1.12;margin:0 0 12px;max-width:18ch}
+.achievement-intro{color:#d8e1f1;max-width:58ch;line-height:1.75}
+.achievement-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 30px}
+.achievement-card{min-height:140px;padding:18px 15px;border:1px solid rgba(220,231,249,.22);border-radius:14px;background:rgba(255,255,255,.07);display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.achievement-card .award-icon{font-size:21px;color:#d8e4fb}
+.achievement-card strong{font-family:var(--display);font-size:clamp(20px,2.2vw,29px);line-height:1.1;color:#fff}
+.achievement-card span{font-size:12px;line-height:1.5;color:#d5deef}
+.contact .sec-intro{color:#d8e1f1}
+.contact .info{color:#e6ecf7}
+.contact .info a{color:#fff}
+.contact .chat{box-shadow:0 20px 60px rgba(4,13,32,.16)}
+.contact .chat a.zalo{background:var(--ink);border-color:var(--ink)}
+.contact .chat a.mess{background:#edf2fa;border-color:#edf2fa}
+.contact .chat a.mail{background:#f7f9fd;border-color:#d9e1ef}
+.contact h2{max-width:14ch}
+.contact .sec-intro{color:#dceeff}
+.info{list-style:none;margin-top:28px;display:grid;gap:10px}
+.info a{text-decoration:underline;text-underline-offset:3px}
+.chat{background:#fff;color:var(--ink);border-radius:16px;padding:20px;display:grid;gap:12px;align-content:start}
+.chat a{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border-radius:12px;border:1px solid var(--line);text-decoration:none;transition:transform .15s}
+.chat a:hover{transform:translateY(-2px)}
+.chat a b{font-family:var(--display);font-size:19px}
+.chat a span{font-size:14px;color:var(--muted)}
+.chat a.zalo{background:var(--blue);border-color:var(--blue);color:#fff}
+.chat a.zalo span{color:#dceeff}
+.chat a.mess{background:#edf2fa;border-color:#edf2fa}
+.chat a.mail{background:#f3f9ff;border-color:#cfe5f9}
+footer{background:#102b49;color:#c5d9eb;padding:36px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer a{margin-left:16px;text-decoration:none;color:#fff}
+footer a:hover{text-decoration:underline}
+@media (max-width:1000px){
+ .hero .wrap{grid-template-columns:1fr 0.8fr;gap:32px}
+ .experience-item,.experience-item.featured{grid-template-columns:210px minmax(0,1fr);gap:28px}
+ nav{gap:14px}
+ nav a{font-size:13px}
+ .cards,.pkgs,.gallery{grid-template-columns:repeat(2,1fr)}
+ .achievement-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .achievement-card{padding:14px 11px}
+}
+@media (max-width:720px){
+ section{padding:64px 0}
+ .wrap{width:min(100% - 32px,1412px)}
+ header .wrap{min-height:72px;gap:12px}
+ .logo{font-size:21px}
+ .menu-btn{display:block}
+ nav{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;align-items:flex-start;padding:18px 20px;border-bottom:1px solid var(--line);gap:14px}
+ nav.open{display:flex}
+ .hero{padding:52px 0 70px}
+ .hero .wrap,.about .grid,.contact .grid{grid-template-columns:1fr;gap:36px}
+ .achievement-grid{grid-template-columns:1fr;gap:10px}
+ .achievement-card{min-height:0;display:grid;grid-template-columns:36px 1fr;align-items:center;column-gap:12px}
+ .achievement-card .award-icon{grid-row:span 2}
+ .achievement-card strong{font-size:24px}
+ .avatar{order:-1;justify-self:center;width:min(360px,85%)}
+ .hero h1{font-size:clamp(46px,12vw,70px)}
+ .hero p.desc{font-size:16px}
+ .experience-item,.experience-item.featured{grid-template-columns:1fr;gap:18px;padding:26px 0}
+ .experience-item.featured{padding:26px 22px}
+ .experience-content h3{font-size:28px}
+ .experience-proof .proof-caption{align-items:flex-start;flex-direction:column;gap:2px}
+ .cards,.cards.two,.pkgs,.pkgs.two,.gallery{grid-template-columns:1fr}
+ .skill:nth-child(n){padding:22px 0;border-left:0}
+ .skill:nth-child(2n){padding-left:0}
+ .cta .btn{width:100%}
+ .lang{padding:7px 10px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Event image placeholders: add final event photos later */
+.event-image-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:100%;height:100%;min-height:300px;padding:28px;text-align:center;background:linear-gradient(135deg,#f4f6fb,#e8edf6);border:1px dashed #aab8d0;color:#52627d}
+.event-image-placeholder .placeholder-icon{font-size:34px;line-height:1;color:#1d2948}
+.event-image-placeholder strong{font-size:16px;color:#1d2948}
+.event-image-placeholder small{font-size:12px;max-width:28ch}
+@media(max-width:760px){.event-image-placeholder{min-height:220px}}
+
+
+/* Update 2026-10-22: concise profile stats and image-free project cards pending new approved assets */
+.stats{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.stats .stat{min-width:0}
+#b2b .empire-case-top{grid-template-columns:minmax(0,1fr)}
+#b2b .empire-case-top > div{max-width:900px}
+#b2b .empire-proof-grid{display:none!important}
+#b2b .b2b-project{grid-template-columns:minmax(0,1fr)}
+#b2b .b2b-project.reverse .b2b-project-copy{order:initial}
+@media(max-width:760px){.stats{grid-template-columns:1fr}}
+
+/* Evidence placeholders — intentionally empty until final images are supplied */
+.evidence-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0 8px}
+.evidence-slot{min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:22px;border:1.5px dashed #9bb8da;border-radius:14px;background:linear-gradient(145deg,#f7fbff,#edf5ff);color:#1d2948}
+.evidence-slot .placeholder-icon{display:grid;place-items:center;width:42px;height:42px;border:1px solid #b7d2f2;border-radius:50%;font-size:27px;font-weight:400;color:#2456a6;background:#fff}
+.evidence-slot strong{font-size:14px;letter-spacing:.02em}
+.evidence-slot small{font-size:12px;line-height:1.5;color:#637d9c;max-width:32ch}
+.empire-evidence-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+.b2b-project-evidence{padding:0 24px 24px}
+.b2b-project-evidence .evidence-slot{min-height:220px}
+@media(max-width:760px){.evidence-gallery,.empire-evidence-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.evidence-slot{min-height:150px;padding:14px}.b2b-project-evidence{padding:0 18px 18px}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<a class="logo" href="#top">HỮU TRỌNG</a>
+<button aria-controls="nav" aria-expanded="false" class="menu-btn" id="menuBtn">Menu</button>
+<nav aria-label="Điều hướng chính" id="nav">
+<a data-en="Experience" href="#experience">Kinh nghiệm</a>
+<a data-en="Design &amp; Creative" href="#design">Design</a>
+<a data-en="Video" href="#video">Video</a>
+<a data-en="Events" href="#events">Event</a>
+<a data-en="Content &amp; B2B Projects" href="#b2b">Dự án Content</a>
+<a data-en="Contact" href="#contact">Liên hệ</a>
+</nav>
+<button aria-label="Chuyển sang tiếng Anh" class="lang" id="langBtn" type="button"><span class="lang-active">VI</span><span class="lang-separator"> | </span><span>EN</span></button>
+</div>
+</header>
+<main id="top">
+<!-- 1. HERO -->
+<section class="hero">
+<div class="wrap">
+<div>
+<span class="role">MARKETING · CONTENT · SOCIAL MEDIA</span>
+<h1><span>Nguyễn Hữu Trọng.</span><span class="b">Học từ việc làm.</span><span class="b">Lớn lên qua trải nghiệm.</span></h1>
+<p class="tag">Mỗi công việc là một cơ hội để hiểu hơn về nội dung, thương hiệu và cách Marketing tạo ra giá trị.</p>
+<p class="desc" data-en="Experienced in building multi-platform content, managing Fanpages, running SEO content, producing short videos and coordinating communication activities.">Mình bắt đầu từ những bài đăng mạng xã hội, đi qua các chiến dịch truyền thông và hoạt động sự kiện, từng bước phát triển trong Content Marketing. Mỗi trải nghiệm giúp mình hiểu rõ hơn cách nội dung được lên ý tưởng, triển khai và kết nối với người xem.</p>
+<div class="cta">
+<a class="btn primary" data-en="Explore my work" href="#experience">Xem kinh nghiệm ↓</a>
+<a class="btn ghost" data-en="Get in touch" href="#contact">Xem hình ảnh &amp; sản phẩm ↗</a>
+</div>
+</div>
+<div class="avatar">
+<!-- THAY ẢNH: đổi src bên dưới thành đường dẫn ảnh của bạn, ví dụ "anh-dai-dien.jpg" -->
+<img alt="Ảnh đại diện Nguyễn Hữu Trọng – sẽ cập nhật sau" src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 470'&gt;&lt;rect width='400' height='470' fill='%23d8efff'/&gt;&lt;circle cx='200' cy='165' r='66' fill='%230865c8' opacity='.25'/&gt;&lt;path d='M65 470c0-112 58-170 135-170s135 58 135 170z' fill='%230865c8' opacity='.25'/&gt;&lt;text x='200' y='420' font-size='15' text-anchor='middle' fill='%23142f50' font-family='Arial'&gt;YOUR PHOTO&lt;/text&gt;&lt;/svg&gt;"/>
+</div>
+</div>
+</section>
+<!-- 2. ABOUT -->
+<section class="about" id="about">
+<div class="wrap">
+<div class="head"><h2 data-en="About me">Về mình</h2></div>
+<div class="grid">
+<div>
+<p data-en="I’m Nguyễn Hữu Trọng, pursuing Content Marketing and Digital Marketing with a focus on creative content tied to communication goals. I’ve helped plan content, manage Fanpages, run SEO content, produce short videos and coordinate programs and events.">Mình là Nguyễn Hữu Trọng, người theo đuổi lĩnh vực Content Marketing và Digital Marketing với định hướng phát triển nội dung sáng tạo gắn liền với mục tiêu truyền thông. Mình đã có cơ hội tham gia xây dựng kế hoạch nội dung, quản lý Fanpage, triển khai SEO Content, sản xuất video ngắn và phối hợp tổ chức các chương trình, sự kiện.</p>
+<p data-en="I always study the target audience, shape the right message and choose the most effective way to deliver it on each platform. I want to keep growing my strategic thinking, creativity and ability to run Marketing campaigns that deliver real value.">Trong quá trình làm việc, mình luôn chú trọng việc tìm hiểu đối tượng mục tiêu, xây dựng thông điệp phù hợp và lựa chọn cách truyền tải hiệu quả trên từng nền tảng. Mình mong muốn tiếp tục phát triển tư duy chiến lược, năng lực sáng tạo và khả năng triển khai các chiến dịch Marketing có giá trị thực tế.</p>
+</div>
+<div class="stats">
+<!-- SỬA SỐ LIỆU: thay phần trong thẻ <b> -->
+<div class="stat"><b data-en="2 years">2 năm</b><strong data-en="Content &amp; Digital Marketing experience">Kinh nghiệm Content &amp; Digital Marketing</strong><small data-en="Focused on content strategy, channel operations and performance optimization.">Tập trung vào chiến lược nội dung, vận hành kênh và tối ưu hiệu quả.</small></div>
+<div class="stat"><b data-en="135K · 120K">135K · 120K</b><strong data-en="Followers across 2 Fanpages">Followers trên 2 Fanpage</strong><small data-en="Managed content for two Fanpages with 135,000 and 120,000 followers.">Từng trực tiếp quản lý nội dung cho hai Fanpage có quy mô 135.000 và 120.000 người theo dõi.</small></div>
+</div>
+</div>
+</div>
+</section>
+<!-- EXPERIENCE: 4 kinh nghiệm theo CV -->
+<section id="experience">
+<div class="wrap">
+<div class="head">
+<h2 data-en="My Experience">Kinh nghiệm làm việc</h2>
+<p class="sec-intro" data-en="Four experiences that shaped my approach to content and marketing.">Bốn trải nghiệm giúp mình tích lũy kinh nghiệm thực tế trong Content Marketing, Social Media và truyền thông.</p>
+</div>
+<div class="experience-list">
+<article class="experience-item featured">
+<div class="experience-meta">
+<div class="experience-date">04/2026 — 09/2026</div>
+<span class="experience-status">Kinh nghiệm gần nhất</span>
+</div>
+<div class="experience-content">
+<h3>Công ty TNHH Giáo dục Empire</h3>
+<div class="experience-role">Content Marketing</div>
+<ul>
+<li>Trực tiếp vận hành và phát triển nội dung cho 2 Fanpage có quy mô khoảng 135K và 120K người theo dõi; xây dựng lịch đăng và triển khai khoảng 5 bài/ngày.</li>
+<li>Nghiên cứu insight, hành vi người dùng để phát triển ý tưởng và câu chuyện phù hợp với từng nhóm khách hàng.</li>
+<li>Sáng tạo bài viết, caption; phối hợp sản xuất hình ảnh và video ngắn phục vụ quảng bá thương hiệu.</li>
+<li>Theo dõi hiệu quả bài đăng, tối ưu nội dung; 4/5 bài viết nổi bật đến từ ý tưởng do bản thân triển khai.</li>
+<li>Tham gia hoạt động truyền thông góp phần thu hút hơn 10.000 khách hàng tiềm năng sau 3 tháng.</li>
+</ul>
+<div class="experience-proof">
+
+<div class="evidence-gallery empire-evidence-gallery empire-experience-gallery"><div aria-label="Vị trí ảnh minh chứng: Empire Team · Minh chứng 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Minh chứng 1</strong><small>Lịch đăng nội dung &amp; bài viết tiêu biểu — sẽ cập nhật ảnh sau</small></div><div aria-label="Vị trí ảnh minh chứng: Empire Team · Minh chứng 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Minh chứng 2</strong><small>Số liệu hiệu suất &amp; tổng quan Fanpage — sẽ cập nhật ảnh sau</small></div></div>
+<div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Hình ảnh &amp; sản phẩm</span></div>
+</div>
+</div>
+</article>
+<article class="experience-item">
+<div class="experience-meta"><div class="experience-date">07/2025 — 11/2025</div></div>
+<div class="experience-content">
+<h3>Công ty TNHH Digitalcare.vn</h3>
+<div class="experience-role">Thực tập sinh Marketing</div>
+<ul>
+<li>Tiếp nhận brief, làm rõ mục tiêu, đối tượng và yêu cầu dự án trước khi lên kế hoạch.</li>
+<li>Nghiên cứu thị trường, phân tích dữ liệu Fanpage và hành vi người dùng để tìm insight, cơ hội nội dung.</li>
+<li>Xây dựng Content Plan, đề xuất Content Angle, Concept và Idea phù hợp với từng chiến dịch.</li>
+<li>Phối hợp với Design/Production, theo dõi hiệu suất và đề xuất điều chỉnh nội dung theo phản hồi thực tế.</li>
+</ul>
+<div class="experience-proof"><div class="proof-gallery">
+<div class="media-slot"><strong>Digitalcare · Ảnh 01</strong><small>Content Plan &amp; sản phẩm<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
+<div class="media-slot"><strong>Digitalcare · Ảnh 02</strong><small>Content Plan &amp; sản phẩm<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
+</div><div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Hình ảnh &amp; sản phẩm</span></div></div>
+</div>
+</article>
+<article class="experience-item">
+<div class="experience-meta"><div class="experience-date">06/2023 — 03/2025</div></div>
+<div class="experience-content">
+<h3>Khoa Quản trị Kinh doanh — IUH</h3>
+<div class="experience-role">Content Marketing</div>
+<ul>
+<li>Lập kế hoạch và triển khai nội dung cho các chiến dịch truyền thông, hoạt động sinh viên và chương trình của Khoa.</li>
+<li>Phát triển ý tưởng, biên tập nội dung và phối hợp sản xuất ấn phẩm truyền thông trên mạng xã hội.</li>
+<li>Phân công công việc, theo dõi tiến độ và kiểm soát chất lượng nội dung của đội ngũ.</li>
+<li>Phối hợp tổ chức chương trình sinh viên, hỗ trợ truyền thông đến cộng đồng người học.</li>
+</ul>
+<div class="experience-proof"><div class="proof-gallery">
+<div class="media-slot"><strong>Khoa QTKD – IUH · Ảnh 01</strong><small>Truyền thông &amp; sự kiện<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
+<div class="media-slot"><strong>Khoa QTKD – IUH · Ảnh 02</strong><small>Truyền thông &amp; sự kiện<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
+</div><div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Truyền thông &amp; sự kiện</span></div></div>
+</div>
+</article>
+<article class="experience-item">
+<div class="experience-meta"><div class="experience-date">10/2023 — 06/2024</div></div>
+<div class="experience-content">
+<h3>Skoda Gò Vấp</h3>
+<div class="experience-role">Nhân viên Marketing</div>
+<ul>
+<li>Triển khai nội dung truyền thông sản phẩm trên Social Media và Landing Page, diễn giải thông tin kỹ thuật rõ ràng, dễ hiểu.</li>
+<li>Sản xuất hơn 60 nội dung/tháng, tham gia xây dựng ý tưởng, hình ảnh và video ngắn.</li>
+<li>Phối hợp triển khai nội dung cho các chương trình Test Drive, Roadshow và Customer Activation trước, trong và sau sự kiện.</li>
+<li>Hỗ trợ truyền thông cho Let’s Explore và Let’s Drive, lần lượt có hơn 500 và 200 người tham gia.</li>
+</ul>
+<div class="experience-proof"><div class="proof-gallery">
+<div class="media-slot"><strong>Skoda Gò Vấp · Ảnh 01</strong><small>Marketing &amp; activation<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
+<div class="media-slot"><strong>Skoda Gò Vấp · Ảnh 02</strong><small>Marketing &amp; activation<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
+</div><div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Marketing &amp; activation</span></div></div>
+</div>
+</article>
+</div>
+<p class="note">Nội dung kinh nghiệm được biên tập từ CV. Hình ảnh, đường dẫn và tài liệu minh chứng sẽ được cập nhật sau.</p>
+</div>
+</section>
+<!-- 4. DESIGN -->
+<section id="design">
+<div class="wrap">
+<div class="head">
+<h2 data-en="Design &amp; Creative Work">Design &amp; ấn phẩm sáng tạo</h2>
+<p class="sec-intro" data-en="Selected visual work across brands, campaigns and product communications.">Một số dự án tiêu biểu. Ảnh minh chứng sẽ được cập nhật sau.</p>
+</div>
+<div class="design-projects">
+<article class="design-project">
+<div class="design-project-head"><h3>Empire Team</h3><p>Fanpage, chiến dịch và nội dung giáo dục</p></div>
+<div class="evidence-gallery empire-evidence-gallery" data-project="empire-team"><div aria-label="Vị trí ảnh minh chứng: Empire Team · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Ấn phẩm 1</strong><small>Ấn phẩm thiết kế 1 — thay ảnh tại assets/projects/empire-design-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Empire Team · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Ấn phẩm 2</strong><small>Ấn phẩm thiết kế 2 — thay ảnh tại assets/projects/empire-design-2.jpg</small></div></div>
+</article><article class="design-project">
+<div class="design-project-head"><h3>Digitalcare · Taki Phụ Kiện Bếp</h3><p>Thiết kế truyền thông sản phẩm phụ kiện bếp</p></div>
+<div class="evidence-gallery" data-project="taki-phu-kien-bep"><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/taki-phu-kien-bep-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/taki-phu-kien-bep-2.jpg</small></div></div></div>
+</article><article class="design-project">
+<div class="design-project-head"><h3>Digitalcare · KoKen Vít Khoan Cao Cấp</h3><p>Ấn phẩm truyền thông sản phẩm công nghiệp</p></div>
+<div class="evidence-gallery" data-project="koken-vit-khoan"><div aria-label="Vị trí ảnh minh chứng: Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/koken-vit-khoan-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/koken-vit-khoan-2.jpg</small></div></div></div>
+</article><article class="design-project">
+<div class="design-project-head"><h3>Digitalcare · Thép Trang Trung An</h3><p>Nội dung hình ảnh cho thương hiệu thép</p></div>
+<div class="evidence-gallery" data-project="thep-trang-trung-an"><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Thép Trang Trung An · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Thép Trang Trung An · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/thep-trang-trung-an-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Thép Trang Trung An · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Thép Trang Trung An · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/thep-trang-trung-an-2.jpg</small></div></div></div>
+</article><article class="design-project">
+<div class="design-project-head"><h3>Digitalcare · Tem Xác Thực Bảo An</h3><p>Thiết kế truyền thông về tem xác thực</p></div>
+<div class="evidence-gallery" data-project="tem-xac-thuc-bao-an"><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/tem-xac-thuc-bao-an-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/tem-xac-thuc-bao-an-2.jpg</small></div></div></div>
+</article><article class="design-project">
+<div class="design-project-head"><h3>Khoa Quản trị Kinh doanh · IUH</h3><p>Ấn phẩm truyền thông và hoạt động sinh viên</p></div>
+<div class="evidence-gallery" data-project="iuh-qtkd"><div aria-label="Vị trí ảnh minh chứng: Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/iuh-qtkd-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/iuh-qtkd-2.jpg</small></div></div></div>
+</article><article class="design-project">
+<div class="design-project-head"><h3>Skoda Gò Vấp</h3><p>Nội dung sản phẩm, lái thử và hoạt động thương hiệu</p></div>
+<div class="evidence-gallery" data-project="skoda-go-vap"><div aria-label="Vị trí ảnh minh chứng: Skoda Gò Vấp · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Skoda Gò Vấp · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/skoda-go-vap-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Skoda Gò Vấp · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Skoda Gò Vấp · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/skoda-go-vap-2.jpg</small></div></div></div>
+</article>
+</div>
+</div>
+</section>
+<!-- 5. VIDEO -->
+<section class="light" id="video">
+<div class="wrap">
+<div class="head">
+<h2 data-en="Video Projects">Video &amp; kể chuyện bằng hình ảnh</h2>
+<p class="sec-intro" data-en="Two selected videos showcasing commercial storytelling and educational content.">Hai sản phẩm tiêu biểu: TVC thương hiệu và video học thuật tự quay, tự thu voice.</p>
+</div>
+<div class="video-projects">
+<article class="video-card">
+<div class="video-cover">
+<div class="media-slot"><strong>Vùng đặt video / thumbnail</strong><small>TVC Sik Dak Fook<br/>Thay bằng ảnh bìa hoặc nhúng video</small></div>
+</div>
+<div class="video-info">
+<span class="video-type">TVC · Brand Storytelling</span>
+<h3>TVC Sik Dak Fook – “Bữa Này Gần Nhau”</h3>
+<p>Video quảng bá thương hiệu, kể câu chuyện kết nối qua trải nghiệm ẩm thực và những khoảnh khắc bên nhau.</p>
+</div>
+</article>
+<article class="video-card">
+<div class="video-cover">
+<div class="media-slot"><strong>Vùng đặt video / thumbnail</strong><small>Video học thuật môn TQH<br/>Thay bằng ảnh bìa hoặc nhúng video</small></div>
+</div>
+<div class="video-info">
+<span class="video-type">Video học thuật · Self-produced</span>
+<h3>Giới thiệu môn TQH</h3>
+<p>Tự quay và thu voice, kết hợp sắp xếp nội dung cùng hình ảnh minh họa để truyền tải kiến thức rõ ràng, dễ theo dõi.</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- 6. EVENTS -->
+<section class="projects" id="events">
+<div class="wrap">
+<div class="head">
+<div><p class="role" style="margin-bottom:12px">EVENT · EXPERIENCE · EXECUTION</p><h2 data-en="Events that bring brands and people together">Từ ý tưởng đến trải nghiệm đáng nhớ</h2></div>
+<p class="sec-intro" data-en="Selected event projects in coordination, operations and brand experience.">Một số dấu ấn sự kiện nổi bật — từ điều phối chương trình đến triển khai trải nghiệm thương hiệu.</p>
+</div>
+<div class="event-list">
+<article class="event-card">
+<div class="event-visual"><span class="event-index">01</span><div aria-label="Vị trí ảnh: Empire Team · Di Đâu Đây mùa 2" class="event-image-placeholder" role="img"><span aria-hidden="true" class="placeholder-icon">＋</span><strong>Empire Team · Di Đâu Đây mùa 2</strong><small>Ảnh minh chứng sẽ được cập nhật sau.</small></div></div>
+<div class="event-copy">
+<div class="event-kicker">Empire Team · Hành trình kết nối</div>
+<h3>Di Đâu Đây Mùa 2 — Hành trình Tây Nguyên</h3>
+<p class="event-role" data-en="Deputy Organizing Committee Lead for the connection journey in Buon Ma Thuot and Gia Lai.">Phó Ban Tổ chức hành trình kết nối tại Buôn Ma Thuột và Gia Lai.</p>
+<div class="event-stat"><strong>700+</strong><span>người tham dự</span></div>
+<div class="event-tags"><span>Event Planning</span><span>Coordination</span><span>Operations</span></div>
+</div>
+</article>
+<article class="event-card">
+<div class="event-visual"><span class="event-index">02</span><div aria-label="Vị trí ảnh: Hội trại truyền thống · Khoa QTKD" class="event-image-placeholder" role="img"><span aria-hidden="true" class="placeholder-icon">＋</span><strong>Hội trại truyền thống · Khoa QTKD</strong><small>Ảnh minh chứng sẽ được cập nhật sau.</small></div></div>
+<div class="event-copy">
+<div class="event-kicker">IUH · Student Experience</div>
+<h3>Hội trại truyền thống &amp; Teambuilding Khoa QTKD</h3>
+<p class="event-role" data-en="Led the organizing team for a two-day, one-night camp with team-building activities.">Trưởng Ban Tổ chức chương trình 2 ngày 1 đêm, kết nối sinh viên qua chuỗi hoạt động trải nghiệm.</p>
+<div class="event-stat"><strong>170+</strong><span>trại sinh</span></div>
+<div class="event-tags"><span>Team Leadership</span><span>Event Operations</span><span>Team Building</span></div>
+</div>
+</article>
+<article class="event-card">
+<div class="event-visual"><span class="event-index">03</span><div aria-label="Vị trí ảnh: Skoda · Let’s Explore" class="event-image-placeholder" role="img"><span aria-hidden="true" class="placeholder-icon">＋</span><strong>Skoda · Let’s Explore</strong><small>Ảnh minh chứng sẽ được cập nhật sau.</small></div></div>
+<div class="event-copy">
+<div class="event-kicker">Skoda Vietnam · Brand Experience</div>
+<h3>Let’s Explore — Skoda Vietnam</h3>
+<p class="event-role" data-en="Supported the delivery of a large-scale test-drive experience in Ho Chi Minh City.">Phối hợp triển khai sự kiện trải nghiệm và lái thử xe quy mô lớn tại TP. Hồ Chí Minh.</p>
+<div class="event-stat"><strong>500+</strong><span>người tham dự</span></div>
+<div class="event-tags"><span>Event Coordination</span><span>Brand Activation</span><span>Customer Experience</span></div>
+</div>
+</article>
+<article class="event-card">
+<div class="event-visual"><span class="event-index">04</span><div aria-label="Vị trí ảnh: Skoda Gò Vấp · Let’s Drive" class="event-image-placeholder" role="img"><span aria-hidden="true" class="placeholder-icon">＋</span><strong>Skoda Gò Vấp · Let’s Drive</strong><small>Ảnh minh chứng sẽ được cập nhật sau.</small></div></div>
+<div class="event-copy">
+<div class="event-kicker">Skoda Gò Vấp · Test Drive</div>
+<h3>Let’s Drive — Test Drive Event</h3>
+<p class="event-role" data-en="Planned event activities, coordinated partners and supported on-site execution for the test-drive event.">Lập kế hoạch hoạt động, phối hợp các bên và hỗ trợ vận hành chương trình lái thử.</p>
+<div class="event-stat"><strong>200+</strong><span>người tham dự</span></div>
+<div class="event-tags"><span>Planning</span><span>Partner Coordination</span><span>On-site Execution</span></div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- B2B CASE STUDIES -->
+<section class="b2b-showcase" id="b2b">
+<div class="wrap">
+<div class="head b2b-heading">
+<div><span class="b2b-eyebrow">SELECTED WORK · CONTENT MARKETING</span><h2 data-en="From insight to execution.">Từ insight đến triển khai.</h2></div>
+<p class="sec-intro" data-en="Three projects where I planned the content direction, created communication materials and followed performance through execution.">Các dự án tiêu biểu từ Content Marketing đến B2B: nghiên cứu insight, lập kế hoạch, sản xuất nội dung, thiết kế và theo dõi hiệu quả.</p>
+</div>
+<article class="empire-case">
+<div class="empire-case-top">
+<div>
+<div class="b2b-topline"><span>FEATURED PROJECT</span><span>EMPIRE TEAM · SOCIAL CONTENT &amp; PERFORMANCE</span></div>
+<h3>Empire Team <span>Biến insight thành nội dung có hiệu quả</span></h3>
+<p class="b2b-summary">Trực tiếp tham gia nghiên cứu insight, xây dựng Content Pillar và lịch đăng, triển khai bài viết đa định dạng, theo dõi số liệu để tối ưu nội dung theo hành vi người học.</p>
+<div class="b2b-minihead">VAI TRÒ &amp; TRIỂN KHAI</div>
+<ul class="b2b-list">
+<li>Vận hành nội dung cho 2 Fanpage; duy trì nhịp đăng khoảng 5 bài/ngày.</li>
+<li>Lên ý tưởng, viết nội dung, phối hợp sản xuất hình ảnh và triển khai SEO Content.</li>
+<li>Theo dõi hiệu suất bài đăng, tổng quan Fanpage và tối ưu theo dữ liệu thực tế.</li>
+</ul>
+<div class="b2b-tags"><span>Customer Insight</span><span>Content Strategy</span><span>Content Calendar</span><span>Performance</span><span>SEO</span></div>
+<div class="empire-case-points">
+<div><strong>10.000+</strong><span>khách hàng tiềm năng thu hút trong giai đoạn triển khai</span></div>
+<div><strong>4/5</strong><span>bài viết nổi bật có hiệu suất cao</span></div>
+<div><strong>05 bài/ngày</strong><span>nhịp đăng nội dung duy trì</span></div>
+<div><strong>+10K</strong><span>người theo dõi trong 2 tháng</span></div>
+</div>
+</div>
+</div>
+<div class="empire-case-evidence"><div class="evidence-gallery empire-evidence-gallery"><div aria-label="Vị trí ảnh minh chứng: Empire Team · Minh chứng 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Minh chứng 1</strong><small>Lịch đăng nội dung &amp; bài viết tiêu biểu — thay ảnh tại assets/projects/empire-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Empire Team · Minh chứng 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Minh chứng 2</strong><small>Số liệu hiệu suất &amp; tổng quan Fanpage — thay ảnh tại assets/projects/empire-2.jpg</small></div></div></div><div class="empire-timeline">
+<div class="empire-timeline-head"><h4>CONTENT WORKFLOW</h4><p>Quy trình triển khai nội dung tại Empire Team</p></div>
+<div class="empire-timeline-steps">
+<div><b>01 · INSIGHT</b><span>Phân tích nhu cầu, hành vi và câu hỏi của học sinh.</span></div>
+<div><b>02 · PLANNING</b><span>Xây dựng Content Pillar, angle và lịch đăng theo giai đoạn.</span></div>
+<div><b>03 · PRODUCTION</b><span>Viết bài, phối hợp hình ảnh, video và nội dung SEO.</span></div>
+<div><b>04 · OPTIMIZATION</b><span>Đọc chỉ số, thử nghiệm hook/format và tối ưu hiệu suất.</span></div>
+</div>
+</div>
+</article>
+<div class="b2b-project-list">
+<article class="b2b-project">
+<div class="b2b-project-copy">
+<div class="b2b-topline"><span>PROJECT 01</span><span>PRODUCT CONTENT · SALES SUPPORT</span></div>
+<h3>TAKI <span>Phụ kiện bếp</span></h3>
+<p class="b2b-summary" data-en="Turning product features into clear benefits that help customers understand, trust and choose.">Biến thông tin sản phẩm thành lợi ích dễ hiểu, giúp khách hàng có thêm cơ sở để tin tưởng và lựa chọn.</p>
+<div class="b2b-minihead" data-en="WHAT I DID">MÌNH TRIỂN KHAI</div>
+<ul class="b2b-list"><li data-en="Built monthly Fanpage and SEO content plans.">Lên kế hoạch nội dung Fanpage và SEO theo tháng.</li><li data-en="Created product-benefit posts, sales-support content and Canva visuals.">Viết bài làm rõ lợi ích sản phẩm, hỗ trợ tư vấn bán hàng và thiết kế bằng Canva.</li><li data-en="Managed the workflow and refined content based on feedback.">Quản lý tiến độ trên Trello, theo dõi phản hồi để tối ưu nội dung.</li></ul>
+<div class="b2b-metrics"><div><strong>20+</strong><span data-en="content posts / month">bài content/tháng</span></div><div><strong>10+</strong><span data-en="SEO articles / month">bài SEO/tháng</span></div><div><strong>+30–40%</strong><span data-en="engagement">tương tác</span></div></div>
+<div class="b2b-tags"><span>Content Strategy</span><span>SEO</span><span>Canva</span><span>Trello</span></div>
+</div>
+<div class="b2b-project-evidence"><div aria-label="Vị trí ảnh minh chứng: TAKI Phụ kiện bếp · Ảnh minh chứng" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>TAKI Phụ kiện bếp · Ảnh minh chứng</strong><small>Thay ảnh tại assets/projects/taki-ph-ki-n-b-p.jpg</small></div></div></article>
+<article class="b2b-project reverse">
+<div class="b2b-project-copy">
+<div class="b2b-topline"><span>PROJECT 02</span><span>PRODUCT CONTENT · BRAND COMMUNICATION</span></div>
+<h3>KoKen <span>Vít khoan cao cấp</span></h3>
+<p class="b2b-summary" data-en="Making technical products easier to understand through practical, application-led content.">Đơn giản hóa sản phẩm kỹ thuật bằng nội dung rõ ràng, trực quan và gắn với ứng dụng thực tế.</p>
+<div class="b2b-minihead" data-en="WHAT I DID">MÌNH TRIỂN KHAI</div>
+<ul class="b2b-list"><li data-en="Researched B2B customers and product use cases.">Nghiên cứu khách hàng B2B và tình huống sử dụng sản phẩm.</li><li data-en="Developed technical, product-value and application content pillars.">Xây dựng 3 tuyến nội dung: kiến thức kỹ thuật, giá trị sản phẩm và ứng dụng.</li><li data-en="Produced 30+ monthly content pieces and designed visuals in Canva.">Sản xuất hơn 30 bài/tháng, thiết kế ấn phẩm và tối ưu nội dung theo phản hồi.</li></ul>
+<div class="b2b-metrics"><div><strong>+45%</strong><span data-en="Fanpage engagement">tương tác Fanpage</span></div><div><strong>60+</strong><span data-en="posts / month">bài/tháng</span></div><div><strong>+25%</strong><span data-en="customer inquiries">khách hàng quan tâm</span></div></div>
+<div class="b2b-tags"><span>B2B Content</span><span>Technical Content</span><span>Visual Design</span><span>SEO</span></div>
+</div>
+<div class="b2b-project-evidence"><div aria-label="Vị trí ảnh minh chứng: KoKen Vít khoan cao cấp · Ảnh minh chứng" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>KoKen Vít khoan cao cấp · Ảnh minh chứng</strong><small>Thay ảnh tại assets/projects/koken-v-t-khoan-cao-c-p.jpg</small></div></div></article>
+<article class="b2b-project">
+<div class="b2b-project-copy">
+<div class="b2b-topline"><span>PROJECT 03</span><span>B2B CONTENT · PRODUCT COMMUNICATION</span></div>
+<h3>Thép Trang Trung An</h3>
+<p class="b2b-summary" data-en="Building credibility with practical product knowledge, technical information and industry applications.">Xây dựng độ tin cậy thương hiệu bằng kiến thức sản phẩm, thông tin kỹ thuật và ứng dụng trong ngành xây dựng – cơ khí.</p>
+<div class="b2b-minihead" data-en="WHAT I DID">MÌNH TRIỂN KHAI</div>
+<ul class="b2b-list"><li data-en="Reviewed the Fanpage, product range, audience and brand direction.">Phân tích Fanpage, danh mục sản phẩm, khách hàng mục tiêu và nhận diện thương hiệu.</li><li data-en="Planned PR, informative, video and engagement content series.">Lên kế hoạch chuỗi nội dung PR, thông tin, video và tương tác.</li><li data-en="Translated technical details into accessible, useful communication.">Chuyển hóa thông tin kỹ thuật thành nội dung dễ hiểu, hữu ích.</li></ul>
+<div class="b2b-metrics"><div><strong>25–30</strong><span data-en="posts / month">bài/tháng</span></div><div><strong>+35–45%</strong><span data-en="reach">lượt tiếp cận</span></div><div><strong>+30%</strong><span data-en="technical content engagement">tương tác nội dung kỹ thuật</span></div></div>
+<div class="b2b-tags"><span>Content Planning</span><span>Product Knowledge</span><span>Video</span><span>Community</span></div>
+</div>
+<div class="b2b-project-evidence"><div aria-label="Vị trí ảnh minh chứng: Thép Trang Trung An · Ảnh minh chứng" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Thép Trang Trung An · Ảnh minh chứng</strong><small>Thay ảnh tại assets/projects/th-p-trang-trung-an.jpg</small></div></div></article>
+</div>
+<p class="b2b-footnote" data-en="Performance figures are based on the project summaries provided. Results can vary by campaign and reporting period.">Các chỉ số Empire Team và dự án B2B được trình bày theo tư liệu bạn cung cấp; kết quả có thể thay đổi theo chiến dịch và giai đoạn đo lường.</p>
+</div>
+</section>
+<!-- 5. SERVICES -->
+<section id="services">
+<div class="wrap">
+<div class="head"><h2 data-en="How I Can Help">Lĩnh vực mình có thể hỗ trợ</h2></div>
+<div class="pkgs">
+<div class="pkg">
+<h3>Content Creation</h3>
+<ul><li data-en="Content ideation">Lên ý tưởng nội dung</li><li data-en="Fanpage copywriting">Viết bài Fanpage</li><li data-en="Themed content series">Xây dựng tuyến nội dung theo chủ đề</li><li data-en="Messaging and CTA proposals">Đề xuất thông điệp và CTA</li></ul>
+<!-- Khi có giá chính thức, thay "Liên hệ báo giá" bằng mức giá -->
+<p class="price" data-en="Contact for a quote">Liên hệ báo giá</p><a class="btn ghost" data-en="Discuss this package" href="#contact">Trao đổi gói này</a>
+</div>
+<div class="pkg hot">
+<h3>Social Media Content</h3>
+<ul><li data-en="Monthly content planning">Lập kế hoạch nội dung theo tháng</li><li data-en="Multi-platform content">Xây dựng nội dung đa nền tảng</li><li data-en="Short-video ideas">Đề xuất ý tưởng video ngắn</li><li data-en="Basic Canva design">Thiết kế Canva cơ bản</li><li data-en="Performance tracking and optimization tips">Theo dõi và đề xuất tối ưu nội dung</li></ul>
+<p class="price" data-en="Contact for a quote">Liên hệ báo giá</p><a class="btn ghost" data-en="Discuss this package" href="#contact">Trao đổi gói này</a>
+</div>
+<div class="pkg">
+<h3>SEO Content</h3>
+<ul><li data-en="Keyword research">Nghiên cứu từ khóa</li><li data-en="Article outlines">Xây dựng dàn ý bài viết</li><li data-en="SEO-optimized writing">Viết nội dung chuẩn SEO</li><li data-en="Optimized titles and meta descriptions">Tối ưu tiêu đề và mô tả tìm kiếm</li></ul>
+<p class="price" data-en="Contact for a quote">Liên hệ báo giá</p><a class="btn ghost" data-en="Discuss this package" href="#contact">Trao đổi gói này</a>
+</div>
+<div class="pkg">
+<h3>Digital Marketing</h3>
+<ul><li data-en="Campaign and channel planning">Lên kế hoạch chiến dịch và kênh triển khai</li><li data-en="Audience and competitor research">Nghiên cứu khách hàng và đối thủ</li><li data-en="Multi-channel content coordination">Phối hợp nội dung đa kênh</li><li data-en="Performance tracking and reporting">Theo dõi hiệu quả và tổng hợp báo cáo</li></ul>
+<p class="price" data-en="Discuss project scope">Trao đổi theo phạm vi dự án</p><a class="btn ghost" data-en="Discuss this package" href="#contact">Trao đổi dự án</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. CONTACT + ACHIEVEMENTS -->
+<section class="contact" id="contact">
+<div class="wrap">
+<div class="contact-showcase">
+<div class="eyebrow" data-en="MILESTONES &amp; CONNECTION">DẤU MỐC &amp; KẾT NỐI</div>
+<h2 class="achievement-title" data-en="A few milestones I’m proud of. Let’s create the next one together.">Những dấu mốc mình tự hào. Cùng tạo nên dấu mốc tiếp theo nhé.</h2>
+<p class="achievement-intro" data-en="Beyond hands-on projects, I value the process of learning, researching and turning ideas into practical outcomes.">Bên cạnh trải nghiệm thực tế, mình trân trọng hành trình học hỏi, nghiên cứu và biến ý tưởng thành những kết quả có giá trị.</p>
+<div aria-label="Thành tích nổi bật" class="achievement-grid">
+<div class="achievement-card"><div aria-hidden="true" class="award-icon">♛</div><strong>Á Quân</strong><span data-en="Green Marketing Competition">Cuộc thi Green Marketing</span></div>
+<div class="achievement-card"><div aria-hidden="true" class="award-icon">✦</div><strong>Giải Ba</strong><span data-en="Scientific Research Conference">Hội thảo Nghiên cứu Khoa học</span></div>
+<div class="achievement-card"><div aria-hidden="true" class="award-icon">↗</div><strong>3.1/4.0</strong><span data-en="Marketing GPA">GPA ngành Marketing</span></div>
+</div>
+</div>
+<div class="grid">
+<div>
+<h2 data-en="Have a project in mind?">Bạn đang có một ý tưởng Marketing?</h2>
+<p class="sec-intro" data-en="I’m open to connecting and collaborating in Content Marketing, Digital Marketing, B2B communication and creative projects.">Mình sẵn sàng kết nối và hợp tác trong các dự án Content Marketing, Digital Marketing, truyền thông B2B và sáng tạo nội dung.</p>
+<ul class="info">
+<li><span data-en="Based in Ho Chi Minh City, Vietnam">Địa chỉ: TP. Hồ Chí Minh, Việt Nam</span></li>
+<li><span data-en="Social: ">Mạng xã hội: </span>
+<a href="https://www.facebook.com/share/1HwKr85zG5/?mibextid=wwXIfr" rel="noopener" target="_blank">Facebook</a>,
+<a href="https://www.linkedin.com/in/trong-nguyen-huu-0a16a0296/" rel="noopener" target="_blank">LinkedIn</a>
+</li>
+</ul>
+</div>
+<div class="chat">
+<a class="zalo" href="https://zalo.me/0976482846" rel="noopener" target="_blank"><b data-en="Message on Zalo">Nhắn Zalo</b><span>0976 482 846</span></a>
+<a class="mess" href="https://www.facebook.com/share/1HwKr85zG5/?mibextid=wwXIfr" rel="noopener" target="_blank"><b data-en="Message on Messenger">Nhắn Messenger</b><span data-en="Chat via Facebook">Trò chuyện qua Facebook</span></a>
+<a href="tel:0976482846"><b data-en="Call me">Gọi điện thoại</b><span>0976 482 846</span></a>
+<a class="mail" href="mailto:huutrong24112004@gmail.com?subject=Trao%20%C4%91%E1%BB%95i%20h%E1%BB%A3p%20t%C3%A1c"><b data-en="Send an email">Gửi email</b><span>huutrong24112004@gmail.com</span></a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- 7. FOOTER -->
+<footer>
+<div class="wrap">
+<div>
+<div>© <span id="year">2026</span> Nguyễn Hữu Trọng. All rights reserved.</div>
+<div>Content Marketing · Digital Marketing · Social Media</div>
+</div>
+<div>
+<a href="https://www.facebook.com/share/1HwKr85zG5/?mibextid=wwXIfr" rel="noopener" target="_blank">Facebook</a>
+<!-- THAY LINK TIKTOK của bạn vào href bên dưới -->
+<a href="#" rel="noopener" target="_blank">TikTok</a>
+<a href="https://www.linkedin.com/in/trong-nguyen-huu-0a16a0296/" rel="noopener" target="_blank">LinkedIn</a>
+</div>
+</div>
+</footer>
+<script>
+  // Năm hiện tại cho footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menu mobile
+  const btn = document.getElementById('menuBtn'), nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', e => { if (e.target.tagName === 'A') { nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
+
+  // Chuyển ngôn ngữ VI / EN
+  const langBtn = document.getElementById('langBtn');
+  function setLang(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-en]').forEach(e => {
+      if (!e.dataset.vi) e.dataset.vi = e.innerHTML;
+      e.innerHTML = l === 'en' ? e.dataset.en : e.dataset.vi;
+    });
+    langBtn.classList.toggle('is-en', l === 'en');
+    langBtn.setAttribute('aria-label', l === 'en' ? 'Đang dùng tiếng Anh — nhấn để chuyển sang tiếng Việt' : 'Đang dùng tiếng Việt — nhấn để chuyển sang tiếng Anh');
+    try { localStorage.setItem('lang', l); } catch (e) {}
+  }
+  langBtn.addEventListener('click', () => setLang(document.documentElement.lang === 'en' ? 'vi' : 'en'));
+  try { if (localStorage.getItem('lang') === 'en') setLang('en'); } catch (e) {}
+</script>
+</body>
+</html>
