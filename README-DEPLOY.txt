@@ -16,3 +16,5 @@ LƯU Ý:
 - Không đặt index.html bên trong thư mục assets.
 - Không đổi tên hoặc viết hoa/thường tên ảnh/video; GitHub Pages phân biệt chữ hoa/thường.
 - Các đường dẫn trong HTML đều tương đối dạng assets/ten-file.
+
+CẬP NHẬT 22/10/2026: Phần kinh nghiệm Empire Team đã bổ sung 3 ảnh minh chứng theo thứ tự: assets/exp-01.jpg, assets/exp-02.jpg, assets/project-empire-02.jpg. Giữ nguyên cấu trúc index.html và thư mục assets khi đưa lên GitHub Pages.
