@@ -463,10 +463,20 @@ footer a:hover{text-decoration:underline}
 <li>Xây dựng Content Plan, đề xuất Content Angle, Concept và Idea phù hợp với từng chiến dịch.</li>
 <li>Phối hợp với Design/Production, theo dõi hiệu suất và đề xuất điều chỉnh nội dung theo phản hồi thực tế.</li>
 </ul>
-<div class="experience-proof"><div class="proof-gallery">
-<div class="media-slot"><strong>Digitalcare · Ảnh 01</strong><small>Content Plan &amp; sản phẩm<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
-<div class="media-slot"><strong>Digitalcare · Ảnh 02</strong><small>Content Plan &amp; sản phẩm<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
-</div><div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Hình ảnh &amp; sản phẩm</span></div></div>
+<div class="experience-proof">
+  <div class="evidence-gallery">
+    <div class="evidence-slot">
+      <img src="assets/exp-03.jpg" alt="Minh chứng Digitalcare - Ảnh 1">
+    </div>
+    <div class="evidence-slot">
+      <img src="assets/exp-04.jpg" alt="Minh chứng Digitalcare - Ảnh 2">
+    </div>
+  </div>
+  <div class="proof-caption">
+    <span>Xem hình ảnh công việc</span>
+    <span>Digitalcare</span>
+  </div>
+</div>
 </div>
 </article>
 <article class="experience-item">
@@ -480,10 +490,20 @@ footer a:hover{text-decoration:underline}
 <li>Phân công công việc, theo dõi tiến độ và kiểm soát chất lượng nội dung của đội ngũ.</li>
 <li>Phối hợp tổ chức chương trình sinh viên, hỗ trợ truyền thông đến cộng đồng người học.</li>
 </ul>
-<div class="experience-proof"><div class="proof-gallery">
-<div class="media-slot"><strong>Khoa QTKD – IUH · Ảnh 01</strong><small>Truyền thông &amp; sự kiện<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
-<div class="media-slot"><strong>Khoa QTKD – IUH · Ảnh 02</strong><small>Truyền thông &amp; sự kiện<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
-</div><div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Truyền thông &amp; sự kiện</span></div></div>
+<div class="experience-proof">
+  <div class="evidence-gallery">
+    <div class="evidence-slot">
+      <img src="assets/exp-05.jpg" alt="Minh chứng Khoa QTKD IUH - Ảnh 1">
+    </div>
+    <div class="evidence-slot">
+      <img src="assets/exp-06.jpg" alt="Minh chứng Khoa QTKD IUH - Ảnh 2">
+    </div>
+  </div>
+  <div class="proof-caption">
+    <span>Xem hình ảnh công việc</span>
+    <span>Truyền thông &amp; sự kiện</span>
+  </div>
+</div>
 </div>
 </article>
 <article class="experience-item">
@@ -497,10 +517,24 @@ footer a:hover{text-decoration:underline}
 <li>Phối hợp triển khai nội dung cho các chương trình Test Drive, Roadshow và Customer Activation trước, trong và sau sự kiện.</li>
 <li>Hỗ trợ truyền thông cho Let’s Explore và Let’s Drive, lần lượt có hơn 500 và 200 người tham gia.</li>
 </ul>
-<div class="experience-proof"><div class="proof-gallery">
-<div class="media-slot"><strong>Skoda Gò Vấp · Ảnh 01</strong><small>Marketing &amp; activation<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
-<div class="media-slot"><strong>Skoda Gò Vấp · Ảnh 02</strong><small>Marketing &amp; activation<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
-</div><div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Marketing &amp; activation</span></div></div>
+<div class="experience-proof">
+  <div class="evidence-gallery">
+    <div class="evidence-slot">
+      <img src="assets/exp-07.jpg"
+           alt="Minh chứng Marketing Skoda Gò Vấp - Ảnh 1">
+    </div>
+
+    <div class="evidence-slot">
+      <img src="assets/exp-08.jpg"
+           alt="Minh chứng Marketing Skoda Gò Vấp - Ảnh 2">
+    </div>
+  </div>
+
+  <div class="proof-caption">
+    <span>Xem hình ảnh công việc</span>
+    <span>Marketing &amp; Activation</span>
+  </div>
+</div>
 </div>
 </article>
 </div>
