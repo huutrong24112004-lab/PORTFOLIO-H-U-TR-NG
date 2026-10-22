@@ -384,6 +384,61 @@ footer a:hover{text-decoration:underline}
 .video-player-wrap video{display:block;width:100%;height:auto;max-height:520px;aspect-ratio:16/9;object-fit:contain;background:#0c1424}
 .portfolio-asset-image{object-position:center}
 @media(max-width:700px){.video-player-wrap video{max-height:360px}}
+
+
+/* ===== Portfolio media refinement: consistent rhythm, no cropped design text ===== */
+:root{--media-radius:14px;--media-shadow:0 10px 28px rgba(20,41,72,.075)}
+.asset-frame{display:flex;flex-direction:column;min-width:0;overflow:hidden;border-radius:var(--media-radius);box-shadow:var(--media-shadow);height:100%;}
+.asset-frame figcaption{flex:0 0 auto;min-height:42px;display:flex;align-items:center;padding:10px 13px;font-size:12px;line-height:1.45;background:#fff;border-top:1px solid #edf1f7;color:#536681;}
+/* Real-life work photos share one ratio and use cover for an editorial crop. */
+.experience-asset img{display:block;width:100%;height:auto;aspect-ratio:4/3;min-height:0;object-fit:cover;object-position:center;background:#f3f6fb;padding:0;}
+/* Graphic design and dashboards contain text: show the whole original artwork, never crop the copy. */
+.design-gallery,.evidence-gallery{align-items:stretch;}
+.design-asset img,.project-asset img{display:block;width:100%;height:auto;aspect-ratio:4/3;min-height:0;object-fit:contain;object-position:center;background:#f7f9fc;padding:10px;}
+.design-asset{background:#f7f9fc;}
+.project-asset img{aspect-ratio:16/10;padding:12px;background:#f6f8fc;}
+/* Keep two artwork cards aligned on desktop; expand to a single readable column on phones. */
+#design .evidence-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px;}
+#design .design-project{padding:0 0 30px;margin-bottom:2px;}
+#design .design-project-head{align-items:flex-start;flex-direction:column;gap:5px;margin-bottom:14px;}
+#design .design-project-head p{font-size:13px;line-height:1.55;}
+#b2b .evidence-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+#b2b .project-asset img{cursor:zoom-in;}
+/* Event photographs have the same visual height; the caption sits over a dark gradient. */
+#events .event-visual{aspect-ratio:4/3;min-height:0;height:auto;}
+#events .event-image-loaded{position:absolute;inset:0;width:100%;height:100%;min-height:0;}
+#events .event-image-loaded img{position:absolute;inset:0;width:100%;height:100%;min-height:0;object-fit:cover;object-position:center;}
+#events .event-image-caption{z-index:2;}
+#events .event-card{min-width:0;}
+/* Video players align at the same 16:9 ratio instead of growing to source video dimensions. */
+.video-card{min-width:0;display:flex;flex-direction:column;height:100%;}
+.video-player-wrap{width:100%;aspect-ratio:16/9;min-height:0;height:auto;display:flex;align-items:center;justify-content:center;}
+.video-player-wrap video{width:100%;height:100%;max-height:none;aspect-ratio:16/9;object-fit:contain;}
+.video-info{flex:1;}
+/* Prevent long titles, cards and grids from forcing horizontal overflow. */
+.experience-item,.experience-content,.design-project,.event-copy,.video-card,.asset-frame{min-width:0;}
+@media(max-width:760px){
+  #design .evidence-gallery,#b2b .evidence-gallery{grid-template-columns:minmax(0,1fr);gap:14px;}
+  .design-asset img{aspect-ratio:5/4;padding:8px;}
+  .project-asset img{aspect-ratio:4/3;padding:8px;}
+  .experience-asset img{aspect-ratio:4/3;}
+  #events .event-card,#events .event-card:nth-child(even){grid-template-columns:minmax(0,1fr);}
+  #events .event-card:nth-child(even) .event-visual{order:0;}
+  #events .event-visual{aspect-ratio:4/3;min-height:0;}
+  .video-projects{grid-template-columns:minmax(0,1fr);}
+  .asset-frame figcaption{min-height:40px;}
+}
+@media(min-width:761px) and (max-width:1050px){
+  #design .evidence-gallery,#b2b .evidence-gallery{gap:12px;}
+}
+/* Click any image to inspect the full, uncropped source. */
+.portfolio-lightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(7,15,30,.88);}
+.portfolio-lightbox.is-open{display:flex;}
+.portfolio-lightbox img{display:block;max-width:min(94vw,1500px);max-height:84vh;width:auto;height:auto;object-fit:contain;border-radius:8px;background:#fff;box-shadow:0 20px 80px rgba(0,0,0,.3);}
+.portfolio-lightbox-caption{position:absolute;left:24px;right:24px;bottom:18px;text-align:center;color:#fff;font-size:13px;}
+.portfolio-lightbox-close{position:absolute;top:14px;right:18px;width:44px;height:44px;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:28px;line-height:1;cursor:pointer;}
+.design-asset img,.project-asset img,.experience-asset img,#events .event-image-loaded img{cursor:zoom-in;}
+
 </style>
 </head>
 <body>
@@ -464,7 +519,7 @@ footer a:hover{text-decoration:underline}
 </ul>
 <div class="experience-proof">
 
-<div class="evidence-gallery empire-evidence-gallery empire-experience-gallery"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 1" loading="lazy" src="assets/portfolio/exp-01.jpg"/><figcaption>Empire Team · Minh chứng 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 2" loading="lazy" src="assets/portfolio/exp-02.jpg"/><figcaption>Empire Team · Minh chứng 2</figcaption></figure></div>
+<div class="evidence-gallery empire-evidence-gallery empire-experience-gallery"><figure class="asset-frame evidence-asset experience-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 1" loading="lazy" src="assets/portfolio/exp-01.jpg"/><figcaption>Empire Team · Minh chứng 1</figcaption></figure><figure class="asset-frame evidence-asset experience-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 2" loading="lazy" src="assets/portfolio/exp-02.jpg"/><figcaption>Empire Team · Minh chứng 2</figcaption></figure></div>
 <div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Hình ảnh &amp; sản phẩm</span></div>
 </div>
 </div>
@@ -534,29 +589,29 @@ footer a:hover{text-decoration:underline}
 <div class="design-projects">
 <article class="design-project">
 <div class="design-project-head"><h3>Empire Team</h3><p>Fanpage, chiến dịch và nội dung giáo dục</p></div>
-<div class="evidence-gallery empire-evidence-gallery" data-project="empire-team"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-empire-01.jpeg"/><figcaption>Empire Team · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-empire-02.jpg"/><figcaption>Empire Team · Ấn phẩm 2</figcaption></figure></div>
+<div class="evidence-gallery empire-evidence-gallery" data-project="empire-team"><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Empire Team · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-empire-01.jpeg"/><figcaption>Empire Team · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Empire Team · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-empire-02.jpg"/><figcaption>Empire Team · Ấn phẩm 2</figcaption></figure></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Digitalcare · Taki Phụ Kiện Bếp</h3><p>Thiết kế truyền thông sản phẩm phụ kiện bếp</p></div>
-<div class="evidence-gallery" data-project="taki-phu-kien-bep"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-taki-01.jpg"/><figcaption>Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-taki-02.jpg"/><figcaption>Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 2</figcaption></figure></div></div>
+<div class="evidence-gallery" data-project="taki-phu-kien-bep"><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-taki-01.jpg"/><figcaption>Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-taki-02.jpg"/><figcaption>Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 2</figcaption></figure></div></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Digitalcare · KoKen Vít Khoan Cao Cấp</h3><p>Ấn phẩm truyền thông sản phẩm công nghiệp</p></div>
-<div class="evidence-gallery" data-project="koken-vit-khoan"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-koken-01.jpg"/><figcaption>Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-koken-02.jpg"/><figcaption>Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 2</figcaption></figure></div></div>
+<div class="evidence-gallery" data-project="koken-vit-khoan"><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-koken-01.jpg"/><figcaption>Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-koken-02.jpg"/><figcaption>Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 2</figcaption></figure></div></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Digitalcare · Thép Trang Trung An</h3><p>Nội dung hình ảnh cho thương hiệu thép</p></div>
-<div class="evidence-gallery" data-project="thep-trang-trung-an"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Thép Trang Trung An · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-trang-trung-an-01.jpg"/><figcaption>Digitalcare · Thép Trang Trung An · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Thép Trang Trung An · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-trang-trung-an-02.jpg"/><figcaption>Digitalcare · Thép Trang Trung An · Ấn phẩm 2</figcaption></figure></div></div>
+<div class="evidence-gallery" data-project="thep-trang-trung-an"><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Digitalcare · Thép Trang Trung An · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-trang-trung-an-01.jpg"/><figcaption>Digitalcare · Thép Trang Trung An · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Digitalcare · Thép Trang Trung An · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-trang-trung-an-02.jpg"/><figcaption>Digitalcare · Thép Trang Trung An · Ấn phẩm 2</figcaption></figure></div></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Digitalcare · Tem Xác Thực Bảo An</h3><p>Thiết kế truyền thông về tem xác thực</p></div>
-<div class="evidence-gallery" data-project="tem-xac-thuc-bao-an"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-bao-an-01.jpg"/><figcaption>Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-bao-an-02.jpg"/><figcaption>Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 2</figcaption></figure></div></div>
+<div class="evidence-gallery" data-project="tem-xac-thuc-bao-an"><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-bao-an-01.jpg"/><figcaption>Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-bao-an-02.jpg"/><figcaption>Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 2</figcaption></figure></div></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Khoa Quản trị Kinh doanh · IUH</h3><p>Ấn phẩm truyền thông và hoạt động sinh viên</p></div>
-<div class="evidence-gallery" data-project="iuh-qtkd"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-khoa-qtkd-01.jpg"/><figcaption>Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-khoa-qtkd-02.jpg"/><figcaption>Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 2</figcaption></figure></div></div>
+<div class="evidence-gallery" data-project="iuh-qtkd"><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-khoa-qtkd-01.jpg"/><figcaption>Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-khoa-qtkd-02.jpg"/><figcaption>Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 2</figcaption></figure></div></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Skoda Gò Vấp</h3><p>Nội dung sản phẩm, lái thử và hoạt động thương hiệu</p></div>
-<div class="evidence-gallery" data-project="skoda-go-vap"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Skoda Gò Vấp · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-skoda-01.png"/><figcaption>Skoda Gò Vấp · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Skoda Gò Vấp · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-skoda-02.png"/><figcaption>Skoda Gò Vấp · Ấn phẩm 2</figcaption></figure></div></div>
+<div class="evidence-gallery" data-project="skoda-go-vap"><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Skoda Gò Vấp · Ấn phẩm 1" loading="lazy" src="assets/portfolio/design-skoda-01.png"/><figcaption>Skoda Gò Vấp · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" alt="Skoda Gò Vấp · Ấn phẩm 2" loading="lazy" src="assets/portfolio/design-skoda-02.png"/><figcaption>Skoda Gò Vấp · Ấn phẩm 2</figcaption></figure></div></div>
 </article>
 <article class="design-project">
 <div class="design-project-head"><h3>Digitalcare · Nội dung thương mại</h3><p>Thiết kế truyền thông và nội dung sản phẩm</p></div>
-<div class="evidence-gallery" data-project="digitalcare"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" src="assets/portfolio/design-digitalcare-01.jpg" alt="Digitalcare · Ấn phẩm 1" loading="lazy"/><figcaption>Digitalcare · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" src="assets/portfolio/design-digitalcare-02.jpg" alt="Digitalcare · Ấn phẩm 2" loading="lazy"/><figcaption>Digitalcare · Ấn phẩm 2</figcaption></figure></div>
+<div class="evidence-gallery" data-project="digitalcare"><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" src="assets/portfolio/design-digitalcare-01.jpg" alt="Digitalcare · Ấn phẩm 1" loading="lazy"/><figcaption>Digitalcare · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset design-asset"><img class="portfolio-asset-image" src="assets/portfolio/design-digitalcare-02.jpg" alt="Digitalcare · Ấn phẩm 2" loading="lazy"/><figcaption>Digitalcare · Ấn phẩm 2</figcaption></figure></div>
 </article>
 </div>
 </div>
@@ -677,7 +732,7 @@ Trình duyệt của bạn chưa hỗ trợ video HTML5.
 </div>
 </div>
 </div>
-<div class="empire-case-evidence"><div class="evidence-gallery empire-evidence-gallery"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 1" loading="lazy" src="assets/portfolio/project-empire-01.jpg"/><figcaption>Empire Team · Minh chứng 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 2" loading="lazy" src="assets/portfolio/project-empire-02.jpg"/><figcaption>Empire Team · Minh chứng 2</figcaption></figure></div></div><div class="empire-timeline">
+<div class="empire-case-evidence"><div class="evidence-gallery empire-evidence-gallery"><figure class="asset-frame evidence-asset project-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 1" loading="lazy" src="assets/portfolio/project-empire-01.jpg"/><figcaption>Empire Team · Minh chứng 1</figcaption></figure><figure class="asset-frame evidence-asset project-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 2" loading="lazy" src="assets/portfolio/project-empire-02.jpg"/><figcaption>Empire Team · Minh chứng 2</figcaption></figure></div></div><div class="empire-timeline">
 <div class="empire-timeline-head"><h4>CONTENT WORKFLOW</h4><p>Quy trình triển khai nội dung tại Empire Team</p></div>
 <div class="empire-timeline-steps">
 <div><b>01 · INSIGHT</b><span>Phân tích nhu cầu, hành vi và câu hỏi của học sinh.</span></div>
@@ -698,7 +753,7 @@ Trình duyệt của bạn chưa hỗ trợ video HTML5.
 <div class="b2b-metrics"><div><strong>20+</strong><span data-en="content posts / month">bài content/tháng</span></div><div><strong>10+</strong><span data-en="SEO articles / month">bài SEO/tháng</span></div><div><strong>+30–40%</strong><span data-en="engagement">tương tác</span></div></div>
 <div class="b2b-tags"><span>Content Strategy</span><span>SEO</span><span>Canva</span><span>Trello</span></div>
 </div>
-<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="TAKI Phụ kiện bếp · Ảnh minh chứng" loading="lazy" src="assets/portfolio/project-taki-01.jpg"/><figcaption>TAKI Phụ kiện bếp · Ảnh minh chứng</figcaption></figure></div></article>
+<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset project-asset"><img class="portfolio-asset-image" alt="TAKI Phụ kiện bếp · Ảnh minh chứng" loading="lazy" src="assets/portfolio/project-taki-01.jpg"/><figcaption>TAKI Phụ kiện bếp · Ảnh minh chứng</figcaption></figure></div></article>
 <article class="b2b-project reverse">
 <div class="b2b-project-copy">
 <div class="b2b-topline"><span>PROJECT 02</span><span>PRODUCT CONTENT · BRAND COMMUNICATION</span></div>
@@ -709,7 +764,7 @@ Trình duyệt của bạn chưa hỗ trợ video HTML5.
 <div class="b2b-metrics"><div><strong>+45%</strong><span data-en="Fanpage engagement">tương tác Fanpage</span></div><div><strong>60+</strong><span data-en="posts / month">bài/tháng</span></div><div><strong>+25%</strong><span data-en="customer inquiries">khách hàng quan tâm</span></div></div>
 <div class="b2b-tags"><span>B2B Content</span><span>Technical Content</span><span>Visual Design</span><span>SEO</span></div>
 </div>
-<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="KoKen Vít khoan cao cấp · Ảnh minh chứng" loading="lazy" src="assets/portfolio/project-koken-01.jpg"/><figcaption>KoKen Vít khoan cao cấp · Ảnh minh chứng</figcaption></figure></div></article>
+<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset project-asset"><img class="portfolio-asset-image" alt="KoKen Vít khoan cao cấp · Ảnh minh chứng" loading="lazy" src="assets/portfolio/project-koken-01.jpg"/><figcaption>KoKen Vít khoan cao cấp · Ảnh minh chứng</figcaption></figure></div></article>
 <article class="b2b-project">
 <div class="b2b-project-copy">
 <div class="b2b-topline"><span>PROJECT 03</span><span>B2B CONTENT · PRODUCT COMMUNICATION</span></div>
@@ -720,7 +775,7 @@ Trình duyệt của bạn chưa hỗ trợ video HTML5.
 <div class="b2b-metrics"><div><strong>25–30</strong><span data-en="posts / month">bài/tháng</span></div><div><strong>+35–45%</strong><span data-en="reach">lượt tiếp cận</span></div><div><strong>+30%</strong><span data-en="technical content engagement">tương tác nội dung kỹ thuật</span></div></div>
 <div class="b2b-tags"><span>Content Planning</span><span>Product Knowledge</span><span>Video</span><span>Community</span></div>
 </div>
-<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Thép Trang Trung An · Ảnh minh chứng" loading="lazy" src="assets/portfolio/project-trang-trung-an-01.jpg"/><figcaption>Thép Trang Trung An · Ảnh minh chứng</figcaption></figure></div></article>
+<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset project-asset"><img class="portfolio-asset-image" alt="Thép Trang Trung An · Ảnh minh chứng" loading="lazy" src="assets/portfolio/project-trang-trung-an-01.jpg"/><figcaption>Thép Trang Trung An · Ảnh minh chứng</figcaption></figure></div></article>
 <article class="b2b-project reverse">
 <div class="b2b-project-copy">
 <div class="b2b-topline"><span>PROJECT 04</span><span>BRAND COMMUNICATION · VISUAL CONTENT</span></div>
@@ -730,7 +785,7 @@ Trình duyệt của bạn chưa hỗ trợ video HTML5.
 <ul class="b2b-list"><li>Chuyển hóa thông tin sản phẩm thành nội dung trực quan, dễ hiểu.</li><li>Phối hợp hình ảnh và thông điệp để làm rõ lợi ích, tính xác thực của sản phẩm.</li><li>Thiết kế ấn phẩm truyền thông phục vụ hoạt động giới thiệu sản phẩm.</li></ul>
 <div class="b2b-tags"><span>Product Content</span><span>Brand Communication</span><span>Visual Design</span></div>
 </div>
-<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" src="assets/portfolio/project-bao-an-01.jpg" alt="Bảo An · Dự án truyền thông sản phẩm" loading="lazy"/><figcaption>Bảo An · Dự án truyền thông sản phẩm</figcaption></figure></div>
+<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset project-asset"><img class="portfolio-asset-image" src="assets/portfolio/project-bao-an-01.jpg" alt="Bảo An · Dự án truyền thông sản phẩm" loading="lazy"/><figcaption>Bảo An · Dự án truyền thông sản phẩm</figcaption></figure></div>
 </article>
 </div>
 <p class="b2b-footnote" data-en="Performance figures are based on the project summaries provided. Results can vary by campaign and reporting period.">Các chỉ số Empire Team và dự án B2B được trình bày theo tư liệu bạn cung cấp; kết quả có thể thay đổi theo chiến dịch và giai đoạn đo lường.</p>
@@ -854,5 +909,35 @@ Trình duyệt của bạn chưa hỗ trợ video HTML5.
   });
 })();
 </script>
+
+<script id="portfolio-lightbox-script">
+(function(){
+  const selector = '.design-asset img, .project-asset img, .experience-asset img, #events .event-image-loaded img';
+  const box = document.createElement('div');
+  box.className = 'portfolio-lightbox';
+  box.setAttribute('role','dialog');
+  box.setAttribute('aria-modal','true');
+  box.setAttribute('aria-label','Xem ảnh kích thước đầy đủ');
+  box.innerHTML = '<button class="portfolio-lightbox-close" type="button" aria-label="Đóng">×</button><img alt=""><div class="portfolio-lightbox-caption"></div>';
+  document.body.appendChild(box);
+  const preview = box.querySelector('img');
+  const caption = box.querySelector('.portfolio-lightbox-caption');
+  const closeBtn = box.querySelector('button');
+  function close(){box.classList.remove('is-open');preview.removeAttribute('src');document.body.style.overflow='';}
+  document.addEventListener('click', function(e){
+    const img = e.target.closest && e.target.closest(selector);
+    if(img){
+      if(!img.complete || !img.naturalWidth) return;
+      preview.src = img.currentSrc || img.src;
+      preview.alt = img.alt || '';
+      const fig = img.closest('figure');
+      caption.textContent = (fig && fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : img.alt) || '';
+      box.classList.add('is-open');document.body.style.overflow='hidden';closeBtn.focus();
+    } else if(e.target === box || e.target === closeBtn){ close(); }
+  });
+  document.addEventListener('keydown', function(e){if(e.key==='Escape' && box.classList.contains('is-open')) close();});
+})();
+</script>
+
 </body>
 </html>
