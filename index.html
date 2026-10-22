@@ -359,6 +359,26 @@ footer a:hover{text-decoration:underline}
 .b2b-project-evidence{padding:0 24px 24px}
 .b2b-project-evidence .evidence-slot{min-height:220px}
 @media(max-width:760px){.evidence-gallery,.empire-evidence-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.evidence-slot{min-height:150px;padding:14px}.b2b-project-evidence{padding:0 18px 18px}}
+
+/* Hình ảnh portfolio nạp từ assets/; giữ đúng tỉ lệ và không làm vỡ bố cục */
+.portfolio-asset-image{display:block;width:100%;height:100%;min-height:180px;object-fit:cover;border-radius:inherit;background:linear-gradient(135deg,#eaf0fb,#dce6f7)}
+.asset-frame{margin:0;min-width:0;overflow:hidden;border:1px solid var(--line,#dbe3ef);border-radius:14px;background:var(--surface,#fff);box-shadow:0 8px 24px rgba(20,40,80,.07)}
+.asset-frame img{aspect-ratio:4/3;cursor:zoom-in}
+.asset-frame figcaption{padding:9px 12px;font-size:12px;color:var(--muted,#63718a)}
+.evidence-gallery .asset-frame,.proof-gallery .asset-frame{width:100%;min-width:0}
+.event-image-loaded{position:relative;min-height:260px;overflow:hidden;padding:0;border:0;background:#eaf0fb}
+.event-image-loaded img{position:absolute;inset:0;width:100%;height:100%;min-height:260px;object-fit:cover}
+.event-image-caption{position:absolute;left:12px;right:12px;bottom:12px;padding:7px 10px;border-radius:8px;color:#fff;background:rgba(10,20,40,.72);font-size:12px}
+.video-placeholder{display:flex;flex-direction:column;gap:8px;min-height:230px;overflow:hidden}
+.video-placeholder img{min-height:180px;max-height:260px;object-fit:cover}
+.video-placeholder strong,.video-placeholder small{padding:0 12px}
+.portfolio-asset-image.asset-missing{display:none}
+.asset-frame:has(.asset-missing){display:none}
+.event-image-loaded:has(.asset-missing){display:none}
+.video-placeholder:has(.asset-missing){display:flex;justify-content:center;align-items:center;padding:20px;border:1px dashed #9bb8da;background:linear-gradient(145deg,#f7fbff,#edf5ff)}
+.video-placeholder:has(.asset-missing) img{display:none}
+@media(max-width:760px){.event-image-loaded,.event-image-loaded img{min-height:200px}.asset-frame img{min-height:140px}}
+
 </style>
 </head>
 <body>
@@ -393,7 +413,7 @@ footer a:hover{text-decoration:underline}
 </div>
 <div class="avatar">
 <!-- THAY ẢNH: đổi src bên dưới thành đường dẫn ảnh của bạn, ví dụ "anh-dai-dien.jpg" -->
-<img alt="Ảnh đại diện Nguyễn Hữu Trọng" src="assets/avatar/avatar.jpg"/>
+<img class="portfolio-asset-image avatar-image" alt="Ảnh đại diện Nguyễn Hữu Trọng" data-candidates="assets/avatar/avatar.jpg|assets/avatar/avatar.png|assets/avatar/profile.jpg|assets/avatar/profile.png|assets/avatar/anh-dai-dien.jpg|assets/avatar/anh-dai-dien.png|assets/avatar/avt.jpg|assets/avatar/avt.png|assets/avatar/IMG_01.jpg" loading="eager"/>
 </div>
 </div>
 </section>
@@ -439,7 +459,7 @@ footer a:hover{text-decoration:underline}
 </ul>
 <div class="experience-proof">
 
-<div class="evidence-gallery empire-evidence-gallery empire-experience-gallery"><div aria-label="Vị trí ảnh minh chứng: Empire Team · Minh chứng 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Minh chứng 1</strong><small>Lịch đăng nội dung &amp; bài viết tiêu biểu — sẽ cập nhật ảnh sau</small></div><div aria-label="Vị trí ảnh minh chứng: Empire Team · Minh chứng 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Minh chứng 2</strong><small>Số liệu hiệu suất &amp; tổng quan Fanpage — sẽ cập nhật ảnh sau</small></div></div>
+<div class="evidence-gallery empire-evidence-gallery empire-experience-gallery"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 1" data-candidates="assets/experience/exp-01.jpg|assets/experience/exp-01.png|assets/experience/exp-01.jpeg" loading="lazy"/><figcaption>Empire Team · Minh chứng 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 2" data-candidates="assets/experience/exp-02.jpg|assets/experience/exp-02.png|assets/experience/exp-02.jpeg" loading="lazy"/><figcaption>Empire Team · Minh chứng 2</figcaption></figure></div>
 <div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Hình ảnh &amp; sản phẩm</span></div>
 </div>
 </div>
@@ -456,8 +476,8 @@ footer a:hover{text-decoration:underline}
 <li>Phối hợp với Design/Production, theo dõi hiệu suất và đề xuất điều chỉnh nội dung theo phản hồi thực tế.</li>
 </ul>
 <div class="experience-proof"><div class="proof-gallery">
-<div class="media-slot"><strong>Digitalcare · Ảnh 01</strong><small>Content Plan &amp; sản phẩm<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
-<div class="media-slot"><strong>Digitalcare · Ảnh 02</strong><small>Content Plan &amp; sản phẩm<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
+<figure class="asset-frame experience-asset"><img class="portfolio-asset-image" alt="Digitalcare · Ảnh 01" data-candidates="assets/experience/exp-01.jpg|assets/experience/exp-01.png|assets/experience/exp-01.jpeg" loading="lazy"/><figcaption>Digitalcare · Ảnh 01</figcaption></figure>
+<figure class="asset-frame experience-asset"><img class="portfolio-asset-image" alt="Digitalcare · Ảnh 02" data-candidates="assets/experience/exp-02.jpg|assets/experience/exp-02.png|assets/experience/exp-02.jpeg" loading="lazy"/><figcaption>Digitalcare · Ảnh 02</figcaption></figure>
 </div><div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Hình ảnh &amp; sản phẩm</span></div></div>
 </div>
 </article>
@@ -473,8 +493,8 @@ footer a:hover{text-decoration:underline}
 <li>Phối hợp tổ chức chương trình sinh viên, hỗ trợ truyền thông đến cộng đồng người học.</li>
 </ul>
 <div class="experience-proof"><div class="proof-gallery">
-<div class="media-slot"><strong>Khoa QTKD – IUH · Ảnh 01</strong><small>Truyền thông &amp; sự kiện<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
-<div class="media-slot"><strong>Khoa QTKD – IUH · Ảnh 02</strong><small>Truyền thông &amp; sự kiện<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
+<figure class="asset-frame experience-asset"><img class="portfolio-asset-image" alt="Khoa QTKD – IUH · Ảnh 01" data-candidates="assets/experience/exp-03.jpg|assets/experience/exp-03.png|assets/experience/exp-03.jpeg" loading="lazy"/><figcaption>Khoa QTKD – IUH · Ảnh 01</figcaption></figure>
+<figure class="asset-frame experience-asset"><img class="portfolio-asset-image" alt="Khoa QTKD – IUH · Ảnh 02" data-candidates="assets/experience/exp-04.jpg|assets/experience/exp-04.png|assets/experience/exp-04.jpeg" loading="lazy"/><figcaption>Khoa QTKD – IUH · Ảnh 02</figcaption></figure>
 </div><div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Truyền thông &amp; sự kiện</span></div></div>
 </div>
 </article>
@@ -490,13 +510,13 @@ footer a:hover{text-decoration:underline}
 <li>Hỗ trợ truyền thông cho Let’s Explore và Let’s Drive, lần lượt có hơn 500 và 200 người tham gia.</li>
 </ul>
 <div class="experience-proof"><div class="proof-gallery">
-<div class="media-slot"><strong>Skoda Gò Vấp · Ảnh 01</strong><small>Marketing &amp; activation<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
-<div class="media-slot"><strong>Skoda Gò Vấp · Ảnh 02</strong><small>Marketing &amp; activation<br/>Thay bằng ảnh thật trong thư mục assets</small></div>
+<figure class="asset-frame experience-asset"><img class="portfolio-asset-image" alt="Skoda Gò Vấp · Ảnh 01" data-candidates="assets/experience/exp-05.jpg|assets/experience/exp-05.png|assets/experience/exp-05.jpeg" loading="lazy"/><figcaption>Skoda Gò Vấp · Ảnh 01</figcaption></figure>
+<figure class="asset-frame experience-asset"><img class="portfolio-asset-image" alt="Skoda Gò Vấp · Ảnh 02" data-candidates="assets/experience/exp-06.jpg|assets/experience/exp-06.png|assets/experience/exp-06.jpeg" loading="lazy"/><figcaption>Skoda Gò Vấp · Ảnh 02</figcaption></figure>
 </div><div class="proof-caption"><span>Xem hình ảnh công việc ↗</span><span>Marketing &amp; activation</span></div></div>
 </div>
 </article>
 </div>
-<p class="note">Nội dung kinh nghiệm được biên tập từ CV. Hình ảnh, đường dẫn và tài liệu minh chứng sẽ được cập nhật sau.</p>
+<p class="note">Hình ảnh minh chứng được nạp từ thư mục assets trên GitHub Pages; tên file cần khớp với đường dẫn đã cấu hình.</p>
 </div>
 </section>
 <!-- 4. DESIGN -->
@@ -504,30 +524,30 @@ footer a:hover{text-decoration:underline}
 <div class="wrap">
 <div class="head">
 <h2 data-en="Design &amp; Creative Work">Design &amp; ấn phẩm sáng tạo</h2>
-<p class="sec-intro" data-en="Selected visual work across brands, campaigns and product communications.">Một số dự án tiêu biểu. Ảnh minh chứng sẽ được cập nhật sau.</p>
+<p class="sec-intro" data-en="Selected visual work across brands, campaigns and product communications.">Một số dự án tiêu biểu. Nhấn vào hình ảnh để xem rõ hơn khi ảnh đã được tải lên thư mục assets.</p>
 </div>
 <div class="design-projects">
 <article class="design-project">
 <div class="design-project-head"><h3>Empire Team</h3><p>Fanpage, chiến dịch và nội dung giáo dục</p></div>
-<div class="evidence-gallery empire-evidence-gallery" data-project="empire-team"><div aria-label="Vị trí ảnh minh chứng: Empire Team · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Ấn phẩm 1</strong><small>Ấn phẩm thiết kế 1 — thay ảnh tại assets/projects/empire-design-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Empire Team · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Ấn phẩm 2</strong><small>Ấn phẩm thiết kế 2 — thay ảnh tại assets/projects/empire-design-2.jpg</small></div></div>
+<div class="evidence-gallery empire-evidence-gallery" data-project="empire-team"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Ấn phẩm 1" data-candidates="assets/design/empire-design-1.jpg|assets/projects/empire-design-1.jpg|assets/design/empire-design-1.png|assets/projects/empire-design-1.png|assets/design/empire-design-1.jpeg|assets/projects/empire-design-1.jpeg" loading="lazy"/><figcaption>Empire Team · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Ấn phẩm 2" data-candidates="assets/design/empire-design-2.jpg|assets/projects/empire-design-2.jpg|assets/design/empire-design-2.png|assets/projects/empire-design-2.png|assets/design/empire-design-2.jpeg|assets/projects/empire-design-2.jpeg" loading="lazy"/><figcaption>Empire Team · Ấn phẩm 2</figcaption></figure></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Digitalcare · Taki Phụ Kiện Bếp</h3><p>Thiết kế truyền thông sản phẩm phụ kiện bếp</p></div>
-<div class="evidence-gallery" data-project="taki-phu-kien-bep"><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/taki-phu-kien-bep-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/taki-phu-kien-bep-2.jpg</small></div></div></div>
+<div class="evidence-gallery" data-project="taki-phu-kien-bep"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 1" data-candidates="assets/design/taki-phu-kien-bep-1.jpg|assets/projects/taki-phu-kien-bep-1.jpg|assets/design/taki-phu-kien-bep-1.png|assets/projects/taki-phu-kien-bep-1.png|assets/design/taki-phu-kien-bep-1.jpeg|assets/projects/taki-phu-kien-bep-1.jpeg" loading="lazy"/><figcaption>Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 2" data-candidates="assets/design/taki-phu-kien-bep-2.jpg|assets/projects/taki-phu-kien-bep-2.jpg|assets/design/taki-phu-kien-bep-2.png|assets/projects/taki-phu-kien-bep-2.png|assets/design/taki-phu-kien-bep-2.jpeg|assets/projects/taki-phu-kien-bep-2.jpeg" loading="lazy"/><figcaption>Digitalcare · Taki Phụ Kiện Bếp · Ấn phẩm 2</figcaption></figure></div></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Digitalcare · KoKen Vít Khoan Cao Cấp</h3><p>Ấn phẩm truyền thông sản phẩm công nghiệp</p></div>
-<div class="evidence-gallery" data-project="koken-vit-khoan"><div aria-label="Vị trí ảnh minh chứng: Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/koken-vit-khoan-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/koken-vit-khoan-2.jpg</small></div></div></div>
+<div class="evidence-gallery" data-project="koken-vit-khoan"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 1" data-candidates="assets/design/koken-vit-khoan-1.jpg|assets/projects/koken-vit-khoan-1.jpg|assets/design/koken-vit-khoan-1.png|assets/projects/koken-vit-khoan-1.png|assets/design/koken-vit-khoan-1.jpeg|assets/projects/koken-vit-khoan-1.jpeg" loading="lazy"/><figcaption>Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 2" data-candidates="assets/design/koken-vit-khoan-2.jpg|assets/projects/koken-vit-khoan-2.jpg|assets/design/koken-vit-khoan-2.png|assets/projects/koken-vit-khoan-2.png|assets/design/koken-vit-khoan-2.jpeg|assets/projects/koken-vit-khoan-2.jpeg" loading="lazy"/><figcaption>Digitalcare · KoKen Vít Khoan Cao Cấp · Ấn phẩm 2</figcaption></figure></div></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Digitalcare · Thép Trang Trung An</h3><p>Nội dung hình ảnh cho thương hiệu thép</p></div>
-<div class="evidence-gallery" data-project="thep-trang-trung-an"><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Thép Trang Trung An · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Thép Trang Trung An · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/thep-trang-trung-an-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Thép Trang Trung An · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Thép Trang Trung An · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/thep-trang-trung-an-2.jpg</small></div></div></div>
+<div class="evidence-gallery" data-project="thep-trang-trung-an"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Thép Trang Trung An · Ấn phẩm 1" data-candidates="assets/design/thep-trang-trung-an-1.jpg|assets/projects/thep-trang-trung-an-1.jpg|assets/design/thep-trang-trung-an-1.png|assets/projects/thep-trang-trung-an-1.png|assets/design/thep-trang-trung-an-1.jpeg|assets/projects/thep-trang-trung-an-1.jpeg" loading="lazy"/><figcaption>Digitalcare · Thép Trang Trung An · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Thép Trang Trung An · Ấn phẩm 2" data-candidates="assets/design/thep-trang-trung-an-2.jpg|assets/projects/thep-trang-trung-an-2.jpg|assets/design/thep-trang-trung-an-2.png|assets/projects/thep-trang-trung-an-2.png|assets/design/thep-trang-trung-an-2.jpeg|assets/projects/thep-trang-trung-an-2.jpeg" loading="lazy"/><figcaption>Digitalcare · Thép Trang Trung An · Ấn phẩm 2</figcaption></figure></div></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Digitalcare · Tem Xác Thực Bảo An</h3><p>Thiết kế truyền thông về tem xác thực</p></div>
-<div class="evidence-gallery" data-project="tem-xac-thuc-bao-an"><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/tem-xac-thuc-bao-an-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/tem-xac-thuc-bao-an-2.jpg</small></div></div></div>
+<div class="evidence-gallery" data-project="tem-xac-thuc-bao-an"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 1" data-candidates="assets/design/tem-xac-thuc-bao-an-1.jpg|assets/projects/tem-xac-thuc-bao-an-1.jpg|assets/design/tem-xac-thuc-bao-an-1.png|assets/projects/tem-xac-thuc-bao-an-1.png|assets/design/tem-xac-thuc-bao-an-1.jpeg|assets/projects/tem-xac-thuc-bao-an-1.jpeg" loading="lazy"/><figcaption>Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 2" data-candidates="assets/design/tem-xac-thuc-bao-an-2.jpg|assets/projects/tem-xac-thuc-bao-an-2.jpg|assets/design/tem-xac-thuc-bao-an-2.png|assets/projects/tem-xac-thuc-bao-an-2.png|assets/design/tem-xac-thuc-bao-an-2.jpeg|assets/projects/tem-xac-thuc-bao-an-2.jpeg" loading="lazy"/><figcaption>Digitalcare · Tem Xác Thực Bảo An · Ấn phẩm 2</figcaption></figure></div></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Khoa Quản trị Kinh doanh · IUH</h3><p>Ấn phẩm truyền thông và hoạt động sinh viên</p></div>
-<div class="evidence-gallery" data-project="iuh-qtkd"><div aria-label="Vị trí ảnh minh chứng: Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/iuh-qtkd-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/iuh-qtkd-2.jpg</small></div></div></div>
+<div class="evidence-gallery" data-project="iuh-qtkd"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 1" data-candidates="assets/design/iuh-qtkd-1.jpg|assets/projects/iuh-qtkd-1.jpg|assets/design/iuh-qtkd-1.png|assets/projects/iuh-qtkd-1.png|assets/design/iuh-qtkd-1.jpeg|assets/projects/iuh-qtkd-1.jpeg" loading="lazy"/><figcaption>Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 2" data-candidates="assets/design/iuh-qtkd-2.jpg|assets/projects/iuh-qtkd-2.jpg|assets/design/iuh-qtkd-2.png|assets/projects/iuh-qtkd-2.png|assets/design/iuh-qtkd-2.jpeg|assets/projects/iuh-qtkd-2.jpeg" loading="lazy"/><figcaption>Khoa Quản trị Kinh doanh · IUH · Ấn phẩm 2</figcaption></figure></div></div>
 </article><article class="design-project">
 <div class="design-project-head"><h3>Skoda Gò Vấp</h3><p>Nội dung sản phẩm, lái thử và hoạt động thương hiệu</p></div>
-<div class="evidence-gallery" data-project="skoda-go-vap"><div aria-label="Vị trí ảnh minh chứng: Skoda Gò Vấp · Ấn phẩm 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Skoda Gò Vấp · Ấn phẩm 1</strong><small>Thay ảnh tại assets/projects/skoda-go-vap-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Skoda Gò Vấp · Ấn phẩm 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Skoda Gò Vấp · Ấn phẩm 2</strong><small>Thay ảnh tại assets/projects/skoda-go-vap-2.jpg</small></div></div></div>
+<div class="evidence-gallery" data-project="skoda-go-vap"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Skoda Gò Vấp · Ấn phẩm 1" data-candidates="assets/design/skoda-go-vap-1.jpg|assets/projects/skoda-go-vap-1.jpg|assets/design/skoda-go-vap-1.png|assets/projects/skoda-go-vap-1.png|assets/design/skoda-go-vap-1.jpeg|assets/projects/skoda-go-vap-1.jpeg" loading="lazy"/><figcaption>Skoda Gò Vấp · Ấn phẩm 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Skoda Gò Vấp · Ấn phẩm 2" data-candidates="assets/design/skoda-go-vap-2.jpg|assets/projects/skoda-go-vap-2.jpg|assets/design/skoda-go-vap-2.png|assets/projects/skoda-go-vap-2.png|assets/design/skoda-go-vap-2.jpeg|assets/projects/skoda-go-vap-2.jpeg" loading="lazy"/><figcaption>Skoda Gò Vấp · Ấn phẩm 2</figcaption></figure></div></div>
 </article>
 </div>
 </div>
@@ -542,7 +562,7 @@ footer a:hover{text-decoration:underline}
 <div class="video-projects">
 <article class="video-card">
 <div class="video-cover">
-<div class="media-slot"><strong>Vùng đặt video / thumbnail</strong><small>TVC Sik Dak Fook<br/>Thay bằng ảnh bìa hoặc nhúng video</small></div>
+<div class="media-slot video-placeholder"><img class="portfolio-asset-image" alt="Vùng đặt video / thumbnail" data-candidates="assets/video/video-sik-dak-fook-cover.jpg|assets/video/video-sik-dak-fook.jpg|assets/video/video-sik-dak-fook.png" loading="lazy"/><strong>Vùng đặt video / thumbnail</strong><small>Ảnh bìa video (nếu đã tải lên)</small></div>
 </div>
 <div class="video-info">
 <span class="video-type">TVC · Brand Storytelling</span>
@@ -552,7 +572,7 @@ footer a:hover{text-decoration:underline}
 </article>
 <article class="video-card">
 <div class="video-cover">
-<div class="media-slot"><strong>Vùng đặt video / thumbnail</strong><small>Video học thuật môn TQH<br/>Thay bằng ảnh bìa hoặc nhúng video</small></div>
+<div class="media-slot video-placeholder"><img class="portfolio-asset-image" alt="Vùng đặt video / thumbnail" data-candidates="assets/video/video-tqh-cover.jpg|assets/video/video-tqh.jpg|assets/video/video-tqh.png" loading="lazy"/><strong>Vùng đặt video / thumbnail</strong><small>Ảnh bìa video (nếu đã tải lên)</small></div>
 </div>
 <div class="video-info">
 <span class="video-type">Video học thuật · Self-produced</span>
@@ -572,7 +592,7 @@ footer a:hover{text-decoration:underline}
 </div>
 <div class="event-list">
 <article class="event-card">
-<div class="event-visual"><span class="event-index">01</span><div aria-label="Vị trí ảnh: Empire Team · Di Đâu Đây mùa 2" class="event-image-placeholder" role="img"><span aria-hidden="true" class="placeholder-icon">＋</span><strong>Empire Team · Di Đâu Đây mùa 2</strong><small>Ảnh minh chứng sẽ được cập nhật sau.</small></div></div>
+<div class="event-visual"><span class="event-index">01</span><div class="event-image-placeholder event-image-loaded"><img class="portfolio-asset-image" alt="Empire Team · Di Đâu Đây mùa 2" data-candidates="assets/events/event-di-dau-day.jpg|assets/events/event-di-dau-day.png|assets/events/event-di-dau-day.jpeg|assets/events/di-dau-day.jpg|assets/events/di-dau-day.png" loading="lazy"/><span class="event-image-caption">Empire Team · Di Đâu Đây mùa 2</span></div></div>
 <div class="event-copy">
 <div class="event-kicker">Empire Team · Hành trình kết nối</div>
 <h3>Di Đâu Đây Mùa 2 — Hành trình Tây Nguyên</h3>
@@ -582,7 +602,7 @@ footer a:hover{text-decoration:underline}
 </div>
 </article>
 <article class="event-card">
-<div class="event-visual"><span class="event-index">02</span><div aria-label="Vị trí ảnh: Hội trại truyền thống · Khoa QTKD" class="event-image-placeholder" role="img"><span aria-hidden="true" class="placeholder-icon">＋</span><strong>Hội trại truyền thống · Khoa QTKD</strong><small>Ảnh minh chứng sẽ được cập nhật sau.</small></div></div>
+<div class="event-visual"><span class="event-index">02</span><div class="event-image-placeholder event-image-loaded"><img class="portfolio-asset-image" alt="Hội trại truyền thống · Khoa QTKD" data-candidates="assets/events/event-hoi-trai.jpg|assets/events/event-hoi-trai.png|assets/events/event-hoi-trai.jpeg|assets/events/hoi-trai.jpg|assets/events/hoi-trai.png" loading="lazy"/><span class="event-image-caption">Hội trại truyền thống · Khoa QTKD</span></div></div>
 <div class="event-copy">
 <div class="event-kicker">IUH · Student Experience</div>
 <h3>Hội trại truyền thống &amp; Teambuilding Khoa QTKD</h3>
@@ -592,7 +612,7 @@ footer a:hover{text-decoration:underline}
 </div>
 </article>
 <article class="event-card">
-<div class="event-visual"><span class="event-index">03</span><div aria-label="Vị trí ảnh: Skoda · Let’s Explore" class="event-image-placeholder" role="img"><span aria-hidden="true" class="placeholder-icon">＋</span><strong>Skoda · Let’s Explore</strong><small>Ảnh minh chứng sẽ được cập nhật sau.</small></div></div>
+<div class="event-visual"><span class="event-index">03</span><div class="event-image-placeholder event-image-loaded"><img class="portfolio-asset-image" alt="Skoda · Let’s Explore" data-candidates="assets/events/event-lets-explore.jpg|assets/events/event-lets-explore.png|assets/events/event-lets-explore.jpeg|assets/events/lets-explore.jpg|assets/events/lets-explore.png" loading="lazy"/><span class="event-image-caption">Skoda · Let’s Explore</span></div></div>
 <div class="event-copy">
 <div class="event-kicker">Skoda Vietnam · Brand Experience</div>
 <h3>Let’s Explore — Skoda Vietnam</h3>
@@ -602,7 +622,7 @@ footer a:hover{text-decoration:underline}
 </div>
 </article>
 <article class="event-card">
-<div class="event-visual"><span class="event-index">04</span><div aria-label="Vị trí ảnh: Skoda Gò Vấp · Let’s Drive" class="event-image-placeholder" role="img"><span aria-hidden="true" class="placeholder-icon">＋</span><strong>Skoda Gò Vấp · Let’s Drive</strong><small>Ảnh minh chứng sẽ được cập nhật sau.</small></div></div>
+<div class="event-visual"><span class="event-index">04</span><div class="event-image-placeholder event-image-loaded"><img class="portfolio-asset-image" alt="Skoda Gò Vấp · Let’s Drive" data-candidates="assets/events/event-lets-drive.jpg|assets/events/event-lets-drive.png|assets/events/event-lets-drive.jpeg|assets/events/lets-drive.jpg|assets/events/lets-drive.png" loading="lazy"/><span class="event-image-caption">Skoda Gò Vấp · Let’s Drive</span></div></div>
 <div class="event-copy">
 <div class="event-kicker">Skoda Gò Vấp · Test Drive</div>
 <h3>Let’s Drive — Test Drive Event</h3>
@@ -642,7 +662,7 @@ footer a:hover{text-decoration:underline}
 </div>
 </div>
 </div>
-<div class="empire-case-evidence"><div class="evidence-gallery empire-evidence-gallery"><div aria-label="Vị trí ảnh minh chứng: Empire Team · Minh chứng 1" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Minh chứng 1</strong><small>Lịch đăng nội dung &amp; bài viết tiêu biểu — thay ảnh tại assets/projects/empire-1.jpg</small></div><div aria-label="Vị trí ảnh minh chứng: Empire Team · Minh chứng 2" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Empire Team · Minh chứng 2</strong><small>Số liệu hiệu suất &amp; tổng quan Fanpage — thay ảnh tại assets/projects/empire-2.jpg</small></div></div></div><div class="empire-timeline">
+<div class="empire-case-evidence"><div class="evidence-gallery empire-evidence-gallery"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 1" data-candidates="assets/design/empire-1.jpg|assets/projects/empire-1.jpg|assets/design/empire-1.png|assets/projects/empire-1.png|assets/design/empire-1.jpeg|assets/projects/empire-1.jpeg" loading="lazy"/><figcaption>Empire Team · Minh chứng 1</figcaption></figure><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Empire Team · Minh chứng 2" data-candidates="assets/design/empire-2.jpg|assets/projects/empire-2.jpg|assets/design/empire-2.png|assets/projects/empire-2.png|assets/design/empire-2.jpeg|assets/projects/empire-2.jpeg" loading="lazy"/><figcaption>Empire Team · Minh chứng 2</figcaption></figure></div></div><div class="empire-timeline">
 <div class="empire-timeline-head"><h4>CONTENT WORKFLOW</h4><p>Quy trình triển khai nội dung tại Empire Team</p></div>
 <div class="empire-timeline-steps">
 <div><b>01 · INSIGHT</b><span>Phân tích nhu cầu, hành vi và câu hỏi của học sinh.</span></div>
@@ -663,7 +683,7 @@ footer a:hover{text-decoration:underline}
 <div class="b2b-metrics"><div><strong>20+</strong><span data-en="content posts / month">bài content/tháng</span></div><div><strong>10+</strong><span data-en="SEO articles / month">bài SEO/tháng</span></div><div><strong>+30–40%</strong><span data-en="engagement">tương tác</span></div></div>
 <div class="b2b-tags"><span>Content Strategy</span><span>SEO</span><span>Canva</span><span>Trello</span></div>
 </div>
-<div class="b2b-project-evidence"><div aria-label="Vị trí ảnh minh chứng: TAKI Phụ kiện bếp · Ảnh minh chứng" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>TAKI Phụ kiện bếp · Ảnh minh chứng</strong><small>Thay ảnh tại assets/projects/taki-ph-ki-n-b-p.jpg</small></div></div></article>
+<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="TAKI Phụ kiện bếp · Ảnh minh chứng" data-candidates="assets/design/taki-ph-ki-n-b-p.jpg|assets/projects/taki-ph-ki-n-b-p.jpg|assets/design/taki-ph-ki-n-b-p.png|assets/projects/taki-ph-ki-n-b-p.png|assets/design/taki-ph-ki-n-b-p.jpeg|assets/projects/taki-ph-ki-n-b-p.jpeg" loading="lazy"/><figcaption>TAKI Phụ kiện bếp · Ảnh minh chứng</figcaption></figure></div></article>
 <article class="b2b-project reverse">
 <div class="b2b-project-copy">
 <div class="b2b-topline"><span>PROJECT 02</span><span>PRODUCT CONTENT · BRAND COMMUNICATION</span></div>
@@ -674,7 +694,7 @@ footer a:hover{text-decoration:underline}
 <div class="b2b-metrics"><div><strong>+45%</strong><span data-en="Fanpage engagement">tương tác Fanpage</span></div><div><strong>60+</strong><span data-en="posts / month">bài/tháng</span></div><div><strong>+25%</strong><span data-en="customer inquiries">khách hàng quan tâm</span></div></div>
 <div class="b2b-tags"><span>B2B Content</span><span>Technical Content</span><span>Visual Design</span><span>SEO</span></div>
 </div>
-<div class="b2b-project-evidence"><div aria-label="Vị trí ảnh minh chứng: KoKen Vít khoan cao cấp · Ảnh minh chứng" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>KoKen Vít khoan cao cấp · Ảnh minh chứng</strong><small>Thay ảnh tại assets/projects/koken-v-t-khoan-cao-c-p.jpg</small></div></div></article>
+<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="KoKen Vít khoan cao cấp · Ảnh minh chứng" data-candidates="assets/design/koken-v-t-khoan-cao-c-p.jpg|assets/projects/koken-v-t-khoan-cao-c-p.jpg|assets/design/koken-v-t-khoan-cao-c-p.png|assets/projects/koken-v-t-khoan-cao-c-p.png|assets/design/koken-v-t-khoan-cao-c-p.jpeg|assets/projects/koken-v-t-khoan-cao-c-p.jpeg" loading="lazy"/><figcaption>KoKen Vít khoan cao cấp · Ảnh minh chứng</figcaption></figure></div></article>
 <article class="b2b-project">
 <div class="b2b-project-copy">
 <div class="b2b-topline"><span>PROJECT 03</span><span>B2B CONTENT · PRODUCT COMMUNICATION</span></div>
@@ -685,7 +705,7 @@ footer a:hover{text-decoration:underline}
 <div class="b2b-metrics"><div><strong>25–30</strong><span data-en="posts / month">bài/tháng</span></div><div><strong>+35–45%</strong><span data-en="reach">lượt tiếp cận</span></div><div><strong>+30%</strong><span data-en="technical content engagement">tương tác nội dung kỹ thuật</span></div></div>
 <div class="b2b-tags"><span>Content Planning</span><span>Product Knowledge</span><span>Video</span><span>Community</span></div>
 </div>
-<div class="b2b-project-evidence"><div aria-label="Vị trí ảnh minh chứng: Thép Trang Trung An · Ảnh minh chứng" class="evidence-slot" role="img"><span aria-hidden="true" class="placeholder-icon">+</span><strong>Thép Trang Trung An · Ảnh minh chứng</strong><small>Thay ảnh tại assets/projects/th-p-trang-trung-an.jpg</small></div></div></article>
+<div class="b2b-project-evidence"><figure class="asset-frame evidence-asset"><img class="portfolio-asset-image" alt="Thép Trang Trung An · Ảnh minh chứng" data-candidates="assets/design/th-p-trang-trung-an.jpg|assets/projects/th-p-trang-trung-an.jpg|assets/design/th-p-trang-trung-an.png|assets/projects/th-p-trang-trung-an.png|assets/design/th-p-trang-trung-an.jpeg|assets/projects/th-p-trang-trung-an.jpeg" loading="lazy"/><figcaption>Thép Trang Trung An · Ảnh minh chứng</figcaption></figure></div></article>
 </div>
 <p class="b2b-footnote" data-en="Performance figures are based on the project summaries provided. Results can vary by campaign and reporting period.">Các chỉ số Empire Team và dự án B2B được trình bày theo tư liệu bạn cung cấp; kết quả có thể thay đổi theo chiến dịch và giai đoạn đo lường.</p>
 </div>
@@ -795,6 +815,25 @@ footer a:hover{text-decoration:underline}
   }
   langBtn.addEventListener('click', () => setLang(document.documentElement.lang === 'en' ? 'vi' : 'en'));
   try { if (localStorage.getItem('lang') === 'en') setLang('en'); } catch (e) {}
+</script>
+
+<script id="portfolio-asset-loader">
+(function(){
+  document.querySelectorAll('img[data-candidates]').forEach(function(img){
+    var paths=(img.getAttribute('data-candidates')||'').split('|').filter(Boolean);
+    var index=0;
+    function tryNext(){
+      if(index>=paths.length){img.classList.add('asset-missing');img.setAttribute('aria-hidden','true');return;}
+      img.onerror=function(){index++;tryNext();};
+      img.onload=function(){img.classList.remove('asset-missing');};
+      img.src=paths[index++];
+    }
+    tryNext();
+  });
+  document.querySelectorAll('.asset-frame img').forEach(function(img){
+    img.addEventListener('click',function(){if(img.src && !img.classList.contains('asset-missing')){var w=window.open();if(w){w.document.write('<title>'+img.alt+'</title><img src="'+img.src+'" style="max-width:100%;height:auto;display:block;margin:auto">');w.document.close();}}});
+  });
+})();
 </script>
 </body>
 </html>
