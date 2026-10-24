@@ -14,3 +14,6 @@ CÁCH CẬP NHẬT GITHUB PAGES
 6. Chờ GitHub Pages hoàn tất triển khai, sau đó tải lại website bằng Command + Shift + R.
 
 Lưu ý: Không đổi tên file ảnh/video và không đặt index.html bên trong assets.
+
+
+CAP NHAT NOI DUNG KINH NGHIEM: Empire Team, Digitalcare, Khoa QTKD - IUH va Skoda da duoc cap nhat theo noi dung nguoi dung cung cap. Cac thu muc assets, lien ket du an Content va video YouTube duoc giu nguyen.
